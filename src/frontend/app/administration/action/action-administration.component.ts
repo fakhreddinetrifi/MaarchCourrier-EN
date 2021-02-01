@@ -58,8 +58,11 @@ export class ActionAdministrationComponent implements OnInit {
 
                 this.creationMode = true;
 
-                this.http.get('../rest/initAction')
+                this.http.get('../rest/initAction', {responseType: 'text' })
                     .subscribe((data: any) => {
+                        const str = data.lastIndexOf('}');
+                        const act = data.substring(0, str + 1);
+                        data = JSON.parse(act);
                         this.action = data.action;
                         this.selectActionPageId.setValue(this.action.actionPageId);
                         this.selectStatusId.setValue(this.action.id_status);
@@ -86,9 +89,12 @@ export class ActionAdministrationComponent implements OnInit {
             } else {
 
                 this.creationMode = false;
-
-                this.http.get('../rest/actions/' + params['id'])
-                    .subscribe(async (data: any) => {
+                this.http.get('../rest/actions/' + params['id'], {responseType: 'text' })
+                    .subscribe(
+                        async (data: any) => {
+                            const str = data.lastIndexOf('}');
+                            const act = data.substring(0, str + 1);
+                            data = JSON.parse(act);
                         this.action = data.action;
                         this.selectActionPageId.setValue(this.action.actionPageId);
                         this.selectStatusId.setValue(this.action.id_status);
@@ -134,7 +140,6 @@ export class ActionAdministrationComponent implements OnInit {
     getCustomFields() {
         this.action.actionPageId = this.selectActionPageId.value;
         this.action.actionPageGroup = this.actionPages.filter(action => action.id === this.action.actionPageId)[0].category;
-
         if (this.action.actionPageGroup === 'registeredMail') {
             this.action.actionCategories = ['registeredMail'];
         }
@@ -179,14 +184,18 @@ export class ActionAdministrationComponent implements OnInit {
     }
 
     onSubmit() {
+        console.log('---TRACE ACTIONS ---- ACTION.actionPageId == ', this.action.actionPageId);
         if (this.action.actionPageId === 'close_mail') {
             this.action.parameters = { requiredFields: this.selectedFieldsId };
         } else if (this.action.actionPageId === 'create_acknowledgement_receipt') {
             this.action.parameters = { mode: this.arMode };
         }
         if (this.creationMode) {
-            this.http.post('../rest/actions', this.action)
-                .subscribe(() => {
+            this.http.post('../rest/actions', this.action, {responseType: 'text' })
+                .subscribe((data) => {
+                    const str = data.lastIndexOf('}');
+                    const act = data.substring(0, str + 1);
+                    data = JSON.parse(act);
                     this.router.navigate(['/administration/actions']);
                     this.notify.success(this.translate.instant('lang.actionAdded'));
 
@@ -194,14 +203,18 @@ export class ActionAdministrationComponent implements OnInit {
                     this.notify.error(err.error.errors);
                 });
         } else {
-            this.http.put('../rest/actions/' + this.action.id, this.action)
-                .subscribe(() => {
+            this.http.put('../rest/actions/' + this.action.id, this.action, {responseType: 'text' })
+                .subscribe((data) => {
+                    const str = data.lastIndexOf('}');
+                    const act = data.substring(0, str + 1);
+                    data = JSON.parse(act);
                     this.router.navigate(['/administration/actions']);
                     this.notify.success(this.translate.instant('lang.actionUpdated'));
-
-                }, (err) => {
+                }
+                , (err) => {
                     this.notify.error(err.error.errors);
-                });
+                }
+                );
         }
     }
 }

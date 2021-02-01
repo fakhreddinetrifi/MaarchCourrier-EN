@@ -14,12 +14,30 @@
 
 require '../vendor/autoload.php';
 
+
+
+
+function Bt_writeLog($args = [])
+{
+    \SrcCore\controllers\LogsController::add([
+        'isTech'    => true,
+        'moduleId'  => $GLOBALS['batchName'],
+        'level'     => $args['level'],
+        'tableName' => '',
+        'recordId'  => $GLOBALS['batchName'],
+        'eventType' => $GLOBALS['batchName'],
+        'eventId'   => $args['message']
+    ]);
+}
+
+
 //Root application position
 chdir('..');
 date_default_timezone_set(\SrcCore\models\CoreConfigModel::getTimezone());
 
 $customId = \SrcCore\models\CoreConfigModel::getCustomId();
 $language = \SrcCore\models\CoreConfigModel::getLanguage();
+Bt_writeLog(['level' => 'INFO', 'message' => '------ TRACE ------- Action By ID == ' . $language]);
 if (file_exists("custom/{$customId}/src/core/lang/lang-{$language}.php")) {
     require_once("custom/{$customId}/src/core/lang/lang-{$language}.php");
 }

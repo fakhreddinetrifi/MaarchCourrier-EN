@@ -154,17 +154,37 @@ abstract class ActionModelAbstract
         return true;
     }
 
+
+    private static function Bt_writeLog($args = [])
+    {
+        \SrcCore\controllers\LogsController::add([
+            'isTech'    => true,
+            'moduleId'  => $GLOBALS['batchName'],
+            'level'     => $args['level'],
+            'tableName' => '',
+            'recordId'  => $GLOBALS['batchName'],
+            'eventType' => $GLOBALS['batchName'],
+            'eventId'   => $args['message']
+        ]);
+    }
+
+
+
     public static function getActionPages()
     {
         $actionsPages = [];
 
         $loadedXml = CoreConfigModel::getXmlLoaded(['path' => 'core/xml/actions_pages.xml']);
+        ActionModelAbstract::Bt_writeLog(['level' => 'INFO', 'message' => '------ TRACE ActionModelAbstract::getActionPages ------- 1']);
+        $i = 2;
         if ($loadedXml) {
             foreach ($loadedXml->ACTIONPAGE as $actionPage) {
                 if (!defined((string) $actionPage->LABEL)) {
                     $label = (string) $actionPage->LABEL;
+                    ActionModelAbstract::Bt_writeLog(['level' => 'INFO', 'message' => '------ TRACE ActionModelAbstract::getActionPages ------- $label 1 == '. $label]);
                 } else {
                     $label = constant((string) $actionPage->LABEL);
+                    ActionModelAbstract::Bt_writeLog(['level' => 'INFO', 'message' => '------ TRACE ActionModelAbstract::getActionPages ------- $label 2 == '. $label]);
                 }
                 if (!empty((string) $actionPage->DESC)) {
                     $desc = constant((string) $actionPage->DESC);

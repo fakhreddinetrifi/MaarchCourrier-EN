@@ -64,7 +64,9 @@ export class ActionsListComponent implements OnInit {
 
     dialogRef: MatDialogRef<any>;
 
-    ngOnInit(): void { }
+    ngOnInit(): void {
+        console.log('----TRACE MAIN ACTIONS ----')
+    }
 
     open(x: number, y: number, row: any) {
         this.loadActionList();

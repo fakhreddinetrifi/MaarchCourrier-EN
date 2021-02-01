@@ -34,7 +34,7 @@ export class TranslateBackendHttpLoader implements TranslateLoader {
      * @returns {any}
      */
     public getTranslation(lang: string): any {
-        return this.http.get(`../rest/languages/` + lang);
+        return this.http.get(`../rest/languages/en`);
     }
 }
 

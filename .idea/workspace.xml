@@ -1,0 +1,1092 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="65fac6d3-123b-402c-bfff-20f530ff5702" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/dist/30px.80d540ac9d49ccb6545c.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/32px.dcd8942fa7a2e261368d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/3rdpartylicenses.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/5-es2015.273afe3f9736185f020b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/5-es5.273afe3f9736185f020b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/alfresco.91ebbfd747c03a7a514f.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/admin_button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/alfresco.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/bodylogin.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/bootloader.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/logo_only.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/logo_only_white.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/logo_white.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/maarch_box.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/noThumbnail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/spinner.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/fa-brands-400.0fea24969112a781acd2.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/fa-brands-400.c967a94cfbe2b06627ff.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/fa-brands-400.dc2cbadd690e1d4b2c9c.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/fa-brands-400.e33e2cf6e02cac2ccb77.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/fa-brands-400.ec82f282c7f54b637098.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/fa-regular-400.06b9d19ced8d17f3d5cb.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/fa-regular-400.08f9891a6f44d9546678.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/fa-regular-400.1008b5226941c24f4468.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/fa-regular-400.1069ea55beaa01060302.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/fa-regular-400.1495f578452eb676f730.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/fa-solid-900.10ecefc282f2761808bf.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/fa-solid-900.371dbce0dd46bd4d2033.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/fa-solid-900.3a24a60e7f9c6574864a.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/fa-solid-900.3ceb50e7bcafb577367c.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/fa-solid-900.46fdbd2d897f8824e63c.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/fontmaarch-webfont.175362837a293e7edb9a.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/fontmaarch-webfont.27b8e775f2dbbc134728.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/fontmaarch-webfont.6f77117536deb6431d09.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/fontmaarch-webfont.765bb43e35010cb46113.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/fontmaarch-webfont.b80dde79074a506d0f72.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.060b2710bdbbe3dfe48b.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.4692b9ec53fd5972caa2.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.5be1347c682810f199c7.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.82b1212e45a2bc35dd73.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.be810be3a3e14c682a25.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/main-es2015.780ecfd3e5a4ec06181b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/main-es5.780ecfd3e5a4ec06181b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/polyfills-es2015.a3390f1652700a53f04b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/polyfills-es5.75b6ffa131ed9d18e439.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/runtime-es2015.1a02c9460fb9ddda5582.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/runtime-es5.1a02c9460fb9ddda5582.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/scripts.3f995a62571f9f668311.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/styles.64cb924c03fdda80b068.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/throbber.203d1199e7aef04c0a34.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/advlist/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/advlist/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/advlist/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/anchor/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/anchor/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/anchor/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/autolink/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/autolink/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/autolink/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/autoresize/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/autoresize/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/autoresize/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/autosave/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/autosave/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/autosave/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/bbcode/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/bbcode/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/bbcode/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/charmap/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/charmap/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/charmap/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/code/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/code/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/code/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/codesample/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/codesample/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/codesample/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/colorpicker/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/colorpicker/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/colorpicker/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/contextmenu/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/contextmenu/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/contextmenu/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/directionality/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/directionality/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/directionality/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/emoticons/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/emoticons/js/emojis.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/emoticons/js/emojis.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/emoticons/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/emoticons/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/fullpage/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/fullpage/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/fullpage/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/fullscreen/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/fullscreen/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/fullscreen/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/help/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/help/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/help/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/hr/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/hr/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/hr/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/image/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/image/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/image/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/imagetools/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/imagetools/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/imagetools/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/importcss/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/importcss/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/importcss/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/insertdatetime/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/insertdatetime/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/insertdatetime/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/legacyoutput/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/legacyoutput/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/legacyoutput/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/link/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/link/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/link/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/lists/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/lists/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/lists/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/media/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/media/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/media/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/nonbreaking/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/nonbreaking/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/nonbreaking/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/noneditable/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/noneditable/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/noneditable/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/pagebreak/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/pagebreak/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/pagebreak/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/paste/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/paste/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/paste/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/preview/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/preview/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/preview/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/print/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/print/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/print/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/quickbars/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/quickbars/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/quickbars/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/save/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/save/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/save/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/searchreplace/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/searchreplace/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/searchreplace/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/spellchecker/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/spellchecker/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/spellchecker/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/tabfocus/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/tabfocus/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/tabfocus/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/table/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/table/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/table/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/template/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/template/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/template/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/textcolor/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/textcolor/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/textcolor/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/textpattern/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/textpattern/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/textpattern/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/toc/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/toc/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/toc/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/visualblocks/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/visualblocks/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/visualblocks/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/visualchars/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/visualchars/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/visualchars/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/wordcount/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/wordcount/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/plugins/wordcount/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/content/dark/content.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/content/dark/content.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/content/default/content.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/content/default/content.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/content/document/content.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/content/document/content.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/content/writer/content.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/content/writer/content.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/ui/oxide-dark/content.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/ui/oxide-dark/content.inline.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/ui/oxide-dark/content.inline.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/ui/oxide-dark/content.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/ui/oxide-dark/content.mobile.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/ui/oxide-dark/content.mobile.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/ui/oxide-dark/fonts/tinymce-mobile.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/ui/oxide-dark/skin.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/ui/oxide-dark/skin.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/ui/oxide-dark/skin.mobile.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/ui/oxide-dark/skin.mobile.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/ui/oxide/content.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/ui/oxide/content.inline.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/ui/oxide/content.inline.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/ui/oxide/content.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/ui/oxide/content.mobile.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/ui/oxide/content.mobile.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/ui/oxide/fonts/tinymce-mobile.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/ui/oxide/skin.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/ui/oxide/skin.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/ui/oxide/skin.mobile.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/skins/ui/oxide/skin.mobile.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/themes/mobile/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/themes/mobile/theme.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/themes/mobile/theme.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/themes/silver/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/themes/silver/theme.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tinymce/themes/silver/theme.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/titilliumweb-bold-webfont.371a780c9ec111bc308e.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/titilliumweb-bold-webfont.8ada0581de5571079163.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/titilliumweb-bold-webfont.ed095d94a6a733f567c9.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/titilliumweb-bold-webfont.f87fe7d3da79e779224f.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/titilliumweb-extralight-webfont.244a4f6577d661de8fad.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/titilliumweb-extralight-webfont.4c11df99f74b66034201.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/titilliumweb-extralight-webfont.770ca0cfa446bffacf2f.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/titilliumweb-extralight-webfont.81d902c57e7f2cb72366.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/titilliumweb-regular-webfont.54cfc567992f78aa5160.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/titilliumweb-regular-webfont.5f9656b724f129899263.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/titilliumweb-regular-webfont.797a669c682fbad70507.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/titilliumweb-regular-webfont.af7aaa5847740571bcfc.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/rest/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/action/controllers/ActionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/action/controllers/ActionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/action/models/ActionModelAbstract.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/action/models/ActionModelAbstract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/app/actions/actions-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/app/actions/actions-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/app/administration/action/action-administration.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/app/administration/action/action-administration.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/app/administration/action/actions-administration.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/app/administration/action/actions-administration.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/app/administration/administration.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/app/administration/administration.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/assets/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/assets/11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/assets/12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/assets/13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/assets/14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/assets/15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/assets/16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/assets/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/assets/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/assets/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/assets/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/assets/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/assets/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/assets/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/assets/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/assets/bodylogin.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/assets/bodylogin.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/assets/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/assets/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/assets/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/assets/logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/assets/logo_only.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/assets/logo_only.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/service/translate/internationalization.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/service/translate/internationalization.module.ts" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/dist/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/frontend/app/administration/action/action-administration.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="141" column="124" selection-start-line="141" selection-start-column="124" selection-end-line="141" selection-end-column="124" />
+              <folding>
+                <element signature="e#0#61#0" expanded="true" />
+                <element signature="n#!!block;n#getSelectedFields#0;n#ActionAdministrationComponent#0" />
+                <element signature="n#!!block;n#removeSelectedFields#0;n#ActionAdministrationComponent#0" />
+                <element signature="n#!!block;n#onSubmit#0;n#ActionAdministrationComponent#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rest/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="93" column="58" selection-start-line="93" selection-start-column="58" selection-end-line="93" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/frontend/app/administration/action/action-administration.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="64">
+              <caret line="44" column="115" selection-start-line="44" selection-start-column="115" selection-end-line="44" selection-end-column="115" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/maarch_entreprise/xml/config.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/action/controllers/ActionController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="547">
+              <caret line="268" column="61" selection-start-line="268" selection-start-column="61" selection-end-line="268" selection-end-column="61" />
+              <folding>
+                <element signature="e#7#241#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/frontend/service/notification/notification.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="359">
+              <caret line="113" column="66" selection-start-line="113" selection-start-column="66" selection-end-line="113" selection-end-column="66" />
+              <folding>
+                <element signature="e#0#58#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/frontend/app/administration/action/actions-administration.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="118">
+              <caret line="10" column="66" selection-start-line="10" selection-start-column="66" selection-end-line="10" selection-end-column="66" />
+              <folding>
+                <element signature="e#0#92#0" expanded="true" />
+                <element signature="n#!!block;n#deleteAction#0;n#ActionsAdministrationComponent#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/@ngx-translate/core/lib/translate.service.d.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="159" column="7" selection-start-line="159" selection-start-column="7" selection-end-line="159" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://D:/MaarchParapheur-20.03/rest/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1198">
+              <caret line="120" column="12" lean-forward="true" selection-start-line="120" selection-start-column="12" selection-end-line="120" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/maarch_entreprise/config.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>administration/actions</find>
+      <find>/administratio</find>
+      <find>action</find>
+      <find>200</find>
+      <find>ged_doc</find>
+      <find>_SEND_TO_RECORD_MANAGEMENT_DESC</find>
+      <find>_CHECK_ACKNOWLEDGMENT_RECORD_MANAGEMENT_DESC</find>
+      <find>actions</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/frontend/app/actions/actions-list.component.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/app/administration/action/actions-administration.component.html" />
+        <option value="$PROJECT_DIR$/src/frontend/service/auth.service.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/app/app.component.ts" />
+        <option value="$USER_HOME$/Documents/error.json" />
+        <option value="$PROJECT_DIR$/src/frontend/app/administration/administration.module.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/service/translate/internationalization.module.ts" />
+        <option value="$PROJECT_DIR$/rest/index.php" />
+        <option value="$PROJECT_DIR$/src/app/action/controllers/ActionController.php" />
+        <option value="$PROJECT_DIR$/src/app/action/models/ActionModelAbstract.php" />
+        <option value="$PROJECT_DIR$/src/frontend/app/app.component.html" />
+        <option value="$PROJECT_DIR$/src/frontend/index.html" />
+        <option value="$PROJECT_DIR$/src/frontend/app/administration/action/action-administration.component.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/service/notification/notification.service.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/app/administration/action/actions-administration.component.ts" />
+        <option value="$PROJECT_DIR$/apps/maarch_entreprise/xml/config.json" />
+        <option value="$PROJECT_DIR$/apps/maarch_entreprise/config.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/khanamiryan/qrcode-detector-decoder" />
+      <path value="$PROJECT_DIR$/vendor/jasig/phpcas" />
+      <path value="$PROJECT_DIR$/vendor/mikehaertl/php-pdftk" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/chillerlan/php-qrcode" />
+      <path value="$PROJECT_DIR$/vendor/chillerlan/php-traits" />
+      <path value="$PROJECT_DIR$/vendor/jumbojett/openid-connect-php" />
+      <path value="$PROJECT_DIR$/vendor/mikehaertl/php-shellcommand" />
+      <path value="$PROJECT_DIR$/vendor/mikehaertl/php-tmpfile" />
+      <path value="$PROJECT_DIR$/vendor/endroid/qr-code" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/tinybutstrong/tinybutstrong" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/noxxie/pdfparser" />
+      <path value="$PROJECT_DIR$/vendor/phpmailer/phpmailer" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/tinybutstrong/opentbs" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/tmw/fpdm" />
+      <path value="$PROJECT_DIR$/vendor/rafikhaceb/pi-barcode" />
+      <path value="$PROJECT_DIR$/vendor/setasign/fpdi-tcpdf" />
+      <path value="$PROJECT_DIR$/vendor/bacon/bacon-qr-code" />
+      <path value="$PROJECT_DIR$/vendor/sdaoudi/oauth2-keycloak" />
+      <path value="$PROJECT_DIR$/vendor/tecnickcom/tc-lib-barcode" />
+      <path value="$PROJECT_DIR$/vendor/nikic/fast-route" />
+      <path value="$PROJECT_DIR$/vendor/setasign/fpdi" />
+      <path value="$PROJECT_DIR$/vendor/tecnickcom/tcpdf" />
+      <path value="$PROJECT_DIR$/vendor/tecnickcom/tc-lib-color" />
+      <path value="$PROJECT_DIR$/vendor/zf1/zend-exception" />
+      <path value="$PROJECT_DIR$/vendor/php-http/guzzle6-adapter" />
+      <path value="$PROJECT_DIR$/vendor/zf1/zend-search-lucene" />
+      <path value="$PROJECT_DIR$/vendor/php-http/client-common" />
+      <path value="$PROJECT_DIR$/vendor/zf1/zend-xml" />
+      <path value="$PROJECT_DIR$/vendor/pimple/pimple" />
+      <path value="$PROJECT_DIR$/vendor/php-http/discovery" />
+      <path value="$PROJECT_DIR$/vendor/php-http/httplug" />
+      <path value="$PROJECT_DIR$/vendor/zf1/zend-search" />
+      <path value="$PROJECT_DIR$/vendor/container-interop/container-interop" />
+      <path value="$PROJECT_DIR$/vendor/m4tthumphrey/php-gitlab-api" />
+      <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/vendor/phpseclib/phpseclib" />
+      <path value="$PROJECT_DIR$/vendor/respect/validation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/clue/stream-filter" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/php-http/message-factory" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/vendor/symfony/inflector" />
+      <path value="$PROJECT_DIR$/vendor/php-http/curl-client" />
+      <path value="$PROJECT_DIR$/vendor/php-http/multipart-stream-builder" />
+      <path value="$PROJECT_DIR$/vendor/php-http/promise" />
+      <path value="$PROJECT_DIR$/vendor/php-http/message" />
+      <path value="$PROJECT_DIR$/vendor/slim/slim" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth2-client" />
+    </include_path>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/MaarchCourrier-EN.iml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+        <option value="$PROJECT_DIR$/.idea/php.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="176" />
+    <option name="y" value="-8" />
+    <option name="width" value="2019" />
+    <option name="height" value="1094" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="MaarchCourrier-EN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MaarchCourrier-EN" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MaarchCourrier-EN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MaarchCourrier-EN" type="462c0819:PsiDirectoryNode" />
+              <item name="rest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MaarchCourrier-EN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MaarchCourrier-EN" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MaarchCourrier-EN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MaarchCourrier-EN" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MaarchCourrier-EN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MaarchCourrier-EN" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MaarchCourrier-EN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MaarchCourrier-EN" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MaarchCourrier-EN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MaarchCourrier-EN" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="CatdeaLogs" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/UseCases/data.json" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="D:\MaarchCourrier_Etap\MaarchCourrier-EN\node_modules\typescript\lib" />
+    <property name="two.files.diff.last.used.file" value="$USER_HOME$/Documents/UseCases/data.json" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\MaarchCourrier_Etap\MaarchCourrier-EN\src\frontend" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="npm.Angular CLI Server">
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="65fac6d3-123b-402c-bfff-20f530ff5702" name="Default Changelist" comment="" />
+      <created>1611906488322</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1611906488322</updated>
+      <workItem from="1611906492719" duration="26888000" />
+      <workItem from="1612165236615" duration="11755000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="38643000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2557047" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TypeScript" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.66005665" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="FTP" order="11" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/frontend/app/actions/redirect-action/redirect-action.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1004">
+          <caret line="314" column="24" lean-forward="true" selection-start-line="314" selection-start-column="24" selection-end-line="314" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#69#0" expanded="true" />
+            <element signature="n#!!block;n#getEntities#0;n#RedirectActionComponent#0" />
+            <element signature="n#!!block;n#getDefaultEntity#0;n#RedirectActionComponent#0" />
+            <element signature="n#!!block;n#onSubmit#0;n#RedirectActionComponent#0" />
+            <element signature="n#!!block;n#executeAction#0;n#RedirectActionComponent#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/app/actions/actions-list.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-600" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/app/actions/actions.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1980">
+          <caret line="311" column="65" selection-start-line="311" selection-start-column="65" selection-end-line="311" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/app/actions/actions-list.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="67" column="50" selection-start-line="67" selection-start-column="50" selection-end-line="67" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#90#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@angular/core/core.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="5174" column="25" selection-start-line="5174" selection-start-column="25" selection-end-line="5174" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@ngx-translate/core/lib/translate.pipe.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="4" column="55" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/service/app.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-242">
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/app/administration/action/actions-administration.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="4" column="64" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/service/auth.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="123" column="23" selection-start-line="123" selection-start-column="23" selection-end-line="123" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_PLUGINS_DIR$/php/lib/php.jar!/stubs/Core/Core.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="42" column="19" lean-forward="true" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/class/class_db_pdo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/class/class_db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="97" column="27" selection-start-line="97" selection-start-column="27" selection-end-line="97" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_PLUGINS_DIR$/php/lib/php.jar!/stubs/superglobals/_superglobals.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="177" column="29" lean-forward="true" selection-start-line="177" selection-start-column="29" selection-end-line="177" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/assets/32px.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rest/schema.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-280" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="60" column="5" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/signatureBook/batch_tools.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="129" selection-start-line="129" selection-end-line="140" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/action/controllers/ActionMethodController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1440">
+          <caret line="51" column="6" selection-start-line="51" selection-start-column="6" selection-end-line="51" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/error.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="16831" lean-forward="true" selection-start-column="16831" selection-end-column="16831" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@ngx-translate/core/lib/translate.loader.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/app/administration/user/user-administration.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="336" column="92" selection-start-line="336" selection-start-column="92" selection-end-line="336" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/app/administration/administration.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="584">
+          <caret line="102" column="31" selection-start-line="102" selection-start-column="31" selection-end-line="102" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="140" column="29" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/slim/slim/Slim/MiddlewareAwareTrait.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="90" column="5" lean-forward="true" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/slim/slim/Slim/App.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="106" column="27" lean-forward="true" selection-start-line="106" selection-start-column="27" selection-end-line="106" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/models/CoreConfigModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="101" column="101" selection-start-line="101" selection-start-column="101" selection-end-line="101" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unitTests/app/action/ActionControllerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="66" column="47" selection-start-line="66" selection-start-column="47" selection-end-line="66" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lang/lang-en.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36780">
+          <caret line="1839" column="24" selection-start-line="1839" selection-start-column="24" selection-end-line="1839" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/service/translate/internationalization.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="36" column="47" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/UseCases/data.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="292" column="46" selection-start-line="292" selection-start-column="46" selection-end-line="292" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/action/models/ActionModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/maarch_entreprise/lang/en.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="28" column="15" lean-forward="true" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/maarch_entreprise/lang/fr.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="27" column="76" lean-forward="true" selection-start-line="27" selection-start-column="76" selection-end-line="27" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/lang/lang-fr.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="503" column="52" selection-start-line="503" selection-start-column="8" selection-end-line="503" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/data fr.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/signatureBook/process_mailsFromSignatoryBook.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="133" column="8" lean-forward="true" selection-start-line="133" selection-start-column="8" selection-end-line="133" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/xml/actions_pages.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-256">
+          <caret line="408" column="4" lean-forward="true" selection-start-line="408" selection-start-column="4" selection-end-line="408" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/lang/lang-en.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="470" column="19" selection-start-line="470" selection-start-column="19" selection-end-line="470" selection-end-column="19" />
+          <folding>
+            <element signature="e#7#168#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/action/models/ActionModelAbstract.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="186" column="168" selection-start-line="186" selection-start-column="20" selection-end-line="186" selection-end-column="168" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rest/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="93" column="58" selection-start-line="93" selection-start-column="58" selection-end-line="93" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="43" lean-forward="true" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/app/administration/action/action-administration.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="141" column="124" selection-start-line="141" selection-start-column="124" selection-end-line="141" selection-end-column="124" />
+          <folding>
+            <element signature="e#0#61#0" expanded="true" />
+            <element signature="n#!!block;n#getSelectedFields#0;n#ActionAdministrationComponent#0" />
+            <element signature="n#!!block;n#removeSelectedFields#0;n#ActionAdministrationComponent#0" />
+            <element signature="n#!!block;n#onSubmit#0;n#ActionAdministrationComponent#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@ngx-translate/core/lib/translate.service.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="159" column="7" selection-start-line="159" selection-start-column="7" selection-end-line="159" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/app/administration/action/actions-administration.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="10" column="66" selection-start-line="10" selection-start-column="66" selection-end-line="10" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#92#0" expanded="true" />
+            <element signature="n#!!block;n#deleteAction#0;n#ActionsAdministrationComponent#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/service/notification/notification.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="113" column="66" selection-start-line="113" selection-start-column="66" selection-end-line="113" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/action/controllers/ActionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="547">
+          <caret line="268" column="61" selection-start-line="268" selection-start-column="61" selection-end-line="268" selection-end-column="61" />
+          <folding>
+            <element signature="e#7#241#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/app/administration/action/action-administration.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="44" column="115" selection-start-line="44" selection-start-column="115" selection-end-line="44" selection-end-column="115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/maarch_entreprise/xml/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/MaarchParapheur-20.03/rest/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1198">
+          <caret line="120" column="12" lean-forward="true" selection-start-line="120" selection-start-column="12" selection-end-line="120" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/maarch_entreprise/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

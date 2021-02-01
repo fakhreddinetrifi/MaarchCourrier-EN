@@ -190,6 +190,6 @@ import { LifeCycleComponent } from './parameter/lifeCycle/life-cycle.component';
 })
 export class AdministrationModule {
     constructor(translate: TranslateService) {
-        translate.setDefaultLang('fr');
+        translate.setDefaultLang('en');
     }
 }

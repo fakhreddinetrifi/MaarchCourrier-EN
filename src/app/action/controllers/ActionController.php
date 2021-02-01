@@ -22,6 +22,7 @@ use IndexingModel\models\IndexingModelFieldModel;
 use Resource\models\ResModel;
 use Respect\Validation\Validator;
 use Action\models\ActionModel;
+use SrcCore\controllers\LogsController;
 use SrcCore\models\ValidatorModel;
 use Status\models\StatusModel;
 use Slim\Http\Request;
@@ -29,12 +30,26 @@ use Slim\Http\Response;
 
 class ActionController
 {
+
+    private static function Bt_writeLog($args = [])
+    {
+        \SrcCore\controllers\LogsController::add([
+            'isTech'    => true,
+            'moduleId'  => $GLOBALS['batchName'],
+            'level'     => $args['level'],
+            'tableName' => '',
+            'recordId'  => $GLOBALS['batchName'],
+            'eventType' => $GLOBALS['batchName'],
+            'eventId'   => $args['message']
+        ]);
+    }
+
+
     public function get(Request $request, Response $response)
     {
         if (!PrivilegeController::hasPrivilege(['privilegeId' => 'admin_actions', 'userId' => $GLOBALS['id']])) {
             return $response->withStatus(403)->withJson(['errors' => 'Service forbidden']);
         }
-
         $actions = ActionModel::get();
 
         foreach ($actions as $key => $action) {
@@ -86,6 +101,10 @@ class ActionController
         $action['action']['parameters'] = json_decode($action['action']['parameters'], true);
 
         return $response->withJson($action);
+
+
+
+
     }
 
     public function create(Request $request, Response $response)
