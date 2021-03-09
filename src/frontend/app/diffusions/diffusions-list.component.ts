@@ -10,6 +10,7 @@ import { AlertComponent } from '../../plugins/modal/alert.component';
 import { MatDialog } from '@angular/material/dialog';
 import { FunctionsService } from '@service/functions.service';
 import { HeaderService } from '@service/header.service';
+import {ActionsService} from "@appRoot/actions/actions.service";
 
 @Component({
     selector: 'app-diffusions-list',
@@ -98,6 +99,7 @@ export class DiffusionsListComponent implements OnInit {
     @Output() triggerEvent = new EventEmitter();
 
     constructor(
+        private actionService: ActionsService,
         public translate: TranslateService,
         public http: HttpClient,
         private notify: NotificationService,
@@ -117,6 +119,7 @@ export class DiffusionsListComponent implements OnInit {
             this.loadCustomDiffusion();
         }
         this.loading = false;
+        this.actionService.customObservable.subscribe(value => this.getListinstance(value));
     }
 
     drop(event: CdkDragDrop<string[]>) {
@@ -401,7 +404,7 @@ export class DiffusionsListComponent implements OnInit {
     }
 
     getCurrentListinstance() {
-        let listInstanceFormatted: any = [];
+        const listInstanceFormatted: any = [];
 
         if (this.diffList !== null) {
             Object.keys(this.diffList).forEach(role => {
@@ -462,7 +465,7 @@ export class DiffusionsListComponent implements OnInit {
     async addElem(element: any) {
         let item_mode: any = 'cc';
 
-        if (this.hasEmptyDest() && element.type == 'user') {
+        if (this.hasEmptyDest() && element.type === 'user') {
             if (this.currentEntityId) {
                 item_mode = await this.isUserInCurrentEntity(element.serialId) && this.availableRoles.filter(role => role.id === 'dest')[0].canUpdate ? 'dest' : 'cc';
             } else {

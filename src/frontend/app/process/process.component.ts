@@ -1,8 +1,17 @@
-import { Component, OnInit, ViewChild, ViewContainerRef, TemplateRef, OnDestroy } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    ViewChild,
+    ViewContainerRef,
+    TemplateRef,
+    OnDestroy,
+    Inject,
+    Injectable
+} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationService } from '@service/notification/notification.service';
-import { MatDialog } from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import { MatSidenav } from '@angular/material/sidenav';
 
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
@@ -27,7 +36,7 @@ import { FunctionsService } from '@service/functions.service';
 import { PrintedFolderModalComponent } from '../printedFolder/printed-folder-modal.component';
 import { of, Subscription } from 'rxjs';
 import { TechnicalInformationComponent } from '@appRoot/indexation/technical-information/technical-information.component';
-
+import {SentResourceListComponent} from '@appRoot/sentResource/sent-resource-list.component';
 
 @Component({
     templateUrl: 'process.component.html',
@@ -156,8 +165,11 @@ export class ProcessComponent implements OnInit, OnDestroy {
     resourceFollowed: boolean = false;
     resourceFreezed: boolean = false;
     resourceBinded: boolean = false;
-
+    currentInformation: any;
+    listInstance: any[] = [];
+    entities: any;
     constructor(
+        private sentResourceList: SentResourceListComponent,
         public translate: TranslateService,
         private route: ActivatedRoute,
         private _activatedRoute: ActivatedRoute,
@@ -175,11 +187,9 @@ export class ProcessComponent implements OnInit, OnDestroy {
         public privilegeService: PrivilegeService,
         public functions: FunctionsService
     ) {
-
         // ngOnInit does not call if navigate in the same component route : must be in constructor for this case
         this.route.params.subscribe(params => {
             this.loading = true;
-
             this.headerService.sideBarForm = true;
             this.headerService.showhHeaderPanel = true;
             this.headerService.showMenuShortcut = false;
@@ -195,7 +205,6 @@ export class ProcessComponent implements OnInit, OnDestroy {
             this.notify.handleErrors(err);
         });
 
-
         // Event after process action
         this.subscription = this.actionService.catchAction().subscribe(message => {
             this.actionEnded = true;
@@ -206,6 +215,17 @@ export class ProcessComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.headerService.injectInSideBarLeft(this.adminMenuTemplate, this.viewContainerRef, 'adminMenu', 'form');
         this.headerService.setHeader(this.translate.instant('lang.eventProcessDoc'));
+        this.actionService.customObservable.subscribe((res) => {
+                this.onSubmit(res);
+            }
+        );
+        this.http.get(`../rest/resources/${this.currentResourceInformations.resId}`).subscribe(
+            (data: any) => {
+                this.currentInformation = data;
+                console.log(data)
+            }
+        );
+        // this.http.get(`../rest//users/${this.currentUserId}/entities`).subscribe(value => this.entities = value);
     }
 
 
@@ -231,7 +251,7 @@ export class ProcessComponent implements OnInit, OnDestroy {
     }
 
     async initProcessPage(params: any) {
-
+        this.loading = true;
         this.detailMode = false;
 
         this.currentUserId = params['userSerialId'];
@@ -272,6 +292,94 @@ export class ProcessComponent implements OnInit, OnDestroy {
                         categoryUse: action.categories
                     };
                 });
+                let action: any;
+                if (this.currentInformation.status === 'NEW') {
+                    if (Object.values(this.currentInformation.customFields)[9] === 'yes' && (Object.values(this.currentInformation.customFields)[16] === 'no' || Object.values(this.currentInformation.customFields)[16] === '')) {
+                        console.log('TEST')
+                        console.log('Request feedback from compliancy == TRUE')
+                        for (const value of data.actions) {
+                            if (value.id === 562) {
+                                action = value;
+                                break;
+                            }
+                        }
+                        data.actions = [action];
+                    } else if (Object.values(this.currentInformation.customFields)[16] === 'yes') {
+                        console.log('Missing Info == TRUE')
+                        for (const value of data.actions) {
+                            if (value.id === 546) {
+                                action = value;
+                                break;
+                            }
+                        }
+                        data.actions = [action];
+                    } else if (Object.values(this.currentInformation.customFields)[16] === 'no' && Object.values(this.currentInformation.customFields)[9] === 'no') {
+                        console.log('Prepare contract == TRUE')
+                        for (const value of data.actions) {
+                            if (value.id === 544) {
+                                action = value;
+                                break;
+                            }
+                        }
+                        data.actions = [action];
+                    }
+                } else if (this.currentInformation.status === 'FeedbackCl') {
+                    if (Object.values(this.currentInformation.customFields)[9] === 'yes') {
+                        console.log('Request feedback from compliancy == TRUE')
+                        for (const value of data.actions) {
+                            if (value.id === 562) {
+                                action = value;
+                                break;
+                            }
+                        }
+                        data.actions = [action];
+                    } else {
+                        console.log('Prepare contract == TRUE')
+                        for (const value of data.actions) {
+                            if (value.id === 544) {
+                                action = value;
+                                break;
+                            }
+                        }
+                        data.actions = [action];
+                    }
+                } else if (this.currentInformation.status === 'approvedon') {
+                    console.log('Prepare contract == TRUE')
+                    for (const value of data.actions) {
+                        if (value.id === 544) {
+                            action = value;
+                            break;
+                        }
+                    }
+                    data.actions = [action];
+                } else if (this.currentInformation.status === 'precon' || this.currentInformation.status === 'rejcont') {
+                    console.log('Send contract for manager approval == TRUE');
+                    for (const value of data.actions) {
+                        if (value.id === 556) {
+                            action = value;
+                            break;
+                        }
+                    }
+                    data.actions = [action];
+                } else if (this.currentInformation.status === 'appcont') {
+                    console.log('Send Contract for signature == TRUE');
+                    for (const value of data.actions) {
+                        if (value.id === 560) {
+                            action = value;
+                            break;
+                        }
+                    }
+                    data.actions = [action];
+                } else if (this.currentInformation.status === 'signclient') {
+                    console.log('send new request to Global Banking == TRUE');
+                    for (const value of data.actions) {
+                        if (value.id === 547) {
+                            action = value;
+                            break;
+                        }
+                    }
+                    data.actions = [action];
+                }
                 return data;
             }),
             tap((data: any) => {
@@ -279,10 +387,11 @@ export class ProcessComponent implements OnInit, OnDestroy {
                 this.actionsList = data.actions;
             }),
             catchError((err: any) => {
-                this.notify.handleErrors(err);
+                // this.notify.handleErrors(err);
                 return of(false);
             })
         ).subscribe();
+        this.actionsList.forEach((value, index) => console.log('index => ' + index + ' value => ' + value.label));
     }
 
     async initDetailPage(params: any) {
@@ -539,29 +648,33 @@ export class ProcessComponent implements OnInit, OnDestroy {
         }
     }
 
-    onSubmit() {
-        if (this.currentTool === 'info' || this.isModalOpen('info')) {
-            this.processAction();
+    onSubmit(missing: boolean = false) {
+        if (this.selectedAction.id === 546 || this.selectedAction.id === 560 || this.selectedAction.id === 541 || this.selectedAction.id === 547 || this.selectedAction.id === 555) {
+            this.sentResourceList.openPromptMail({id: null, type: null}, this.currentResourceInformations.resId, this.currentUserId, this.currentGroupId, this.currentBasketId, this.currentResourceInformations, this.selectedAction);
         } else {
-            if (this.isToolModified()) {
-                const dialogRef = this.openConfirmModification();
-                dialogRef.afterClosed().pipe(
-                    filter((data: string) => data === 'ok'),
-                    tap(() => {
-                        this.saveTool();
-                    }),
-                    finalize(() => {
-                        this.autoAction = true;
-                        this.currentTool = 'info';
-                    }),
-                    catchError((err: any) => {
-                        this.notify.handleErrors(err);
-                        return of(false);
-                    })
-                ).subscribe();
+            if (this.currentTool === 'info' || this.isModalOpen('info')) {
+                this.processAction();
             } else {
-                this.autoAction = true;
-                this.currentTool = 'info';
+                if (this.isToolModified()) {
+                    const dialogRef = this.openConfirmModification();
+                    dialogRef.afterClosed().pipe(
+                        filter((data: string) => data === 'ok'),
+                        tap(() => {
+                            this.saveTool();
+                        }),
+                        finalize(() => {
+                            this.autoAction = true;
+                            this.currentTool = 'info';
+                        }),
+                        catchError((err: any) => {
+                            this.notify.handleErrors(err);
+                            return of(false);
+                        })
+                    ).subscribe();
+                } else {
+                    this.autoAction = true;
+                    this.currentTool = 'info';
+                }
             }
         }
     }
@@ -782,7 +895,94 @@ export class ProcessComponent implements OnInit, OnDestroy {
 
     async saveTool() {
         if (this.currentTool === 'info' && this.indexingForm !== undefined) {
-            await this.indexingForm.saveData();
+            await this.indexingForm.saveData().finally(() => {
+                this.http.get(`../rest/resources/${this.currentResourceInformations.resId}`).subscribe(
+                    (data: any) => {
+                        this.currentInformation = data;
+                        this.http.get(`../rest/resourcesList/users/${this.currentUserId}/groups/${this.currentGroupId}/baskets/${this.currentBasketId}/actions?resId=${this.currentResourceInformations.resId}`).pipe(
+                            map((val: any) => {
+                                val.actions = val.actions.map((action: any, index: number) => {
+                                    return {
+                                        id: action.id,
+                                        label: action.label,
+                                        component: action.component,
+                                        categoryUse: action.categories
+                                    };
+                                });
+                                let action: any;
+                                if (this.currentInformation.status === 'NEW') {
+                                    if (Object.values(this.currentInformation.customFields)[9] === 'yes' && (Object.values(this.currentInformation.customFields)[16] === 'no' || Object.values(this.currentInformation.customFields)[16] === '')) {
+                                        console.log('Request feedback from compliancy == TRUE')
+                                        for (const value of val.actions) {
+                                            if (value.id === 562) {
+                                                action = value;
+                                                break;
+                                            }
+                                        }
+                                        val.actions = [action];
+                                    } else if (Object.values(this.currentInformation.customFields)[16] === 'yes') {
+                                        console.log('Missing Info == TRUE')
+                                        for (const value of val.actions) {
+                                            if (value.id === 546) {
+                                                action = value;
+                                                break;
+                                            }
+                                        }
+                                        val.actions = [action];
+                                    } else if (Object.values(this.currentInformation.customFields)[16] === 'no' && Object.values(this.currentInformation.customFields)[9] === 'no') {
+                                        console.log('Prepare contract == TRUE')
+                                        for (const value of val.actions) {
+                                            if (value.id === 544) {
+                                                action = value;
+                                                break;
+                                            }
+                                        }
+                                        val.actions = [action];
+                                    }
+                                } else if (this.currentInformation.status === 'FeedbackCl') {
+                                    if (Object.values(this.currentInformation.customFields)[9] === 'yes') {
+                                        console.log('Request feedback from compliancy == TRUE')
+                                        for (const value of val.actions) {
+                                            if (value.id === 562) {
+                                                action = value;
+                                                break;
+                                            }
+                                        }
+                                        val.actions = [action];
+                                    } else {
+                                        console.log('Prepare contract == TRUE')
+                                        for (const value of val.actions) {
+                                            if (value.id === 544) {
+                                                action = value;
+                                                break;
+                                            }
+                                        }
+                                        val.actions = [action];
+                                    }
+                                } else if (this.currentInformation.status === 'approvedon') {
+                                    console.log('Prepare contract == TRUE')
+                                    for (const value of val.actions) {
+                                        if (value.id === 544) {
+                                            action = value;
+                                            break;
+                                        }
+                                    }
+                                    val.actions = [action];
+                                }
+                                return val;
+                            }),
+                            tap((val: any) => {
+                                this.selectedAction = val.actions[0];
+                                this.actionsList = val.actions;
+                            }),
+                            catchError((err: any) => {
+                                // this.notify.handleErrors(err);
+                                return of(false);
+                            })
+                        ).subscribe();
+                    }
+                );
+            })
             setTimeout(() => {
                 this.loadResource(false);
             }, 400);

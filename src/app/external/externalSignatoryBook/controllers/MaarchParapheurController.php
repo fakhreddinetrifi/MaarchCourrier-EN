@@ -525,21 +525,17 @@ class MaarchParapheurController
     {
         $version = $aArgs['version'];
         foreach ($aArgs['idsToRetrieve'][$version] as $resId => $value) {
-            foreach ($value as $s => $k) {
-                MaarchParapheurController::Bt_writeLog(['level' => 'INFO', 'message' => '---- TRACE "MaarchParapheurController" ---- "KEY == " ' .$s . ' "VALUE == " ' . $k]);
-            }
             $documentWorkflow = MaarchParapheurController::getDocumentWorkflow(['config' => $aArgs['config'], 'documentId' => $value['external_id']]);
             if (!is_array($documentWorkflow)) {
                 unset($aArgs['idsToRetrieve'][$version][$resId]);
                 continue;
             }
             $state = MaarchParapheurController::getState(['workflow' => $documentWorkflow]);
-            MaarchParapheurController::Bt_writeLog(['level' => 'INFO', 'message' => '---- TRACE "MaarchParapheurController" --- "STATUS" '.$state['status']]);
+
             if (in_array($state['status'], ['validated', 'refused'])) {
                 $signedDocument = MaarchParapheurController::getDocument(['config' => $aArgs['config'], 'documentId' => $value['external_id']]);
                 $aArgs['idsToRetrieve'][$version][$resId]['format'] = 'pdf';
                 $aArgs['idsToRetrieve'][$version][$resId]['encodedFile'] = $signedDocument['encodedDocument'];
-                MaarchParapheurController::Bt_writeLog(['level' => 'INFO', 'message' => '---- TRACE "MaarchParapheurController" --- "MODE" '.$state['mode']]);
                 if ($state['status'] == 'validated' && in_array($state['mode'], ['sign', 'visa'])) {
                     $aArgs['idsToRetrieve'][$version][$resId]['status'] = 'validated';
                 } elseif ($state['status'] == 'refused' && in_array($state['mode'], ['sign', 'visa'])) {
@@ -578,26 +574,6 @@ class MaarchParapheurController
             }
         }
 
-
-
-
-
-
-        foreach ($aArgs['idsToRetrieve'] as $key => $value) {
-            MaarchParapheurController::Bt_writeLog(['level' => 'INFO', 'message' => '---TRACE MAARCHPARAPHEUR--- $KEY = ']);
-            foreach ($value as $k => $v) {
-                foreach ($v as $s => $b) {
-                    MaarchParapheurController::Bt_writeLog(['level' => 'INFO', 'message' => '---TRACE MAARCHPARAPHEUR--- $KEY = '. $s . ' $VALUE = ' . $b]);
-                }
-            }
-        }
-
-
-
-
-
-
-
         // retourner seulement les mails récupérés (validés ou signés)
         return $aArgs['idsToRetrieve'];
     }
@@ -632,17 +608,17 @@ class MaarchParapheurController
         $state['workflowInfo'] = [];
         foreach ($aArgs['workflow'] as $step) {
             if ($step['status'] == 'VAL' && $step['mode'] == 'sign') {
-                $state['workflowInfo'][] = $step['userDisplay'] . ' (Signé le ' . $step['processDate'] . ')';
+                $state['workflowInfo'][] = $step['userDisplay'] . ' (Signed at ' . $step['processDate'] . ')';
                 $state['signatoryUserId'] = $step['userId'];
             } elseif ($step['status'] == 'VAL' && $step['mode'] == 'visa') {
-                $state['workflowInfo'][] = $step['userDisplay'] . ' (Visé le ' . $step['processDate'] . ')';
+                $state['workflowInfo'][] = $step['userDisplay'] . ' (Viewed at ' . $step['processDate'] . ')';
             }
             if ($step['status'] == 'REF') {
                 $state['status']          = 'refused';
                 $state['note']            = $step['note'];
                 $state['noteCreatorId']   = $step['userId'];
                 $state['noteCreatorName'] = $step['userDisplay'];
-                $state['workflowInfo'][]  = $step['userDisplay'] . ' (Refusé le ' . $step['processDate'] . ')';
+                $state['workflowInfo'][]  = $step['userDisplay'] . ' (Refused at ' . $step['processDate'] . ')';
                 break;
             } elseif (empty($step['status'])) {
                 $state['status'] = 'inProgress';

@@ -92,6 +92,7 @@ export class ActionAdministrationComponent implements OnInit {
                 this.http.get('../rest/actions/' + params['id'], {responseType: 'text' })
                     .subscribe(
                         async (data: any) => {
+                            console.log(data)
                             const str = data.lastIndexOf('}');
                             const act = data.substring(0, str + 1);
                             data = JSON.parse(act);

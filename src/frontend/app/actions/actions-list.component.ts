@@ -66,6 +66,7 @@ export class ActionsListComponent implements OnInit {
 
     ngOnInit(): void {
         console.log('----TRACE MAIN ACTIONS ----')
+        this.actionsList.forEach(data => console.log(data));
     }
 
     open(x: number, y: number, row: any) {

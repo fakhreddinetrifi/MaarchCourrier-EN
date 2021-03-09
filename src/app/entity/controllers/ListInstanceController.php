@@ -33,6 +33,19 @@ use User\models\UserModel;
 
 class ListInstanceController
 {
+    private static function Bt_writeLog($args = [])
+    {
+        \SrcCore\controllers\LogsController::add([
+            'isTech'    => true,
+            'moduleId'  => $GLOBALS['batchName'],
+            'level'     => $args['level'],
+            'tableName' => '',
+            'recordId'  => $GLOBALS['batchName'],
+            'eventType' => $GLOBALS['batchName'],
+            'eventId'   => $args['message']
+        ]);
+    }
+
     const MAPPING_TYPES = [
             'visaCircuit'       => 'VISA_CIRCUIT',
             'opinionCircuit'    => 'AVIS_CIRCUIT'
@@ -60,7 +73,7 @@ class ListInstanceController
                 $listInstances[$key]['descriptionToDisplay'] = UserModel::getPrimaryEntityById(['id' => $value['item_id'], 'select' => ['entities.entity_label']])['entity_label'];
             }
         }
-
+        Bt_writeLog(['level' => 'INFO', 'message' => 'listInstance == ' . $response->withJson(['listInstance' => $listInstances])]);
         return $response->withJson(['listInstance' => $listInstances]);
     }
 

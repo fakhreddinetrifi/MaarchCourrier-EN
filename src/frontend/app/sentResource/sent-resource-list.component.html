@@ -68,7 +68,7 @@
         </ng-container>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
-    <button mat-fab *ngIf="privilegeService.hasCurrentUserPrivilege('sendmail')" class="addSentResource" color="primary" [title]="'lang.sendElement' | translate" (click)="openPromptMail()">
+    <button mat-fab *ngIf="privilegeService.hasCurrentUserPrivilege('sendmail')" class="addSentResource" color="primary" [title]="'lang.sendElement' | translate" (click)="openPromptMail({id: null, type: null}, resId, currentUserId, currentGroupId, currentBasketId)">
         <mat-icon style="height: auto;width: auto;" class="fa fa-plus"></mat-icon>
     </button>
     <button mat-fab *ngIf="privilegeService.hasCurrentUserPrivilege('sendmail')" class="addSentResource" color="primary" [title]="'lang.sendNumericPackage' | translate" (click)="openPromptNumericPackage()">

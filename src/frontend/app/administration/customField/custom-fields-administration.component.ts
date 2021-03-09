@@ -199,7 +199,24 @@ export class CustomFieldsAdministrationComponent implements OnInit {
         ).subscribe();
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     updateCustomField(customField: any, indexCustom: number) {
+        console.log('-----TRACE customField ==> ', customField);
+        console.log('-----TRACE indexCustom ==> ', indexCustom);
         const customFieldToUpdate = { ...customField };
         if (!customField.SQLMode) {
             customField.values = customField.values.filter((x: any, i: any, a: any) => a.map((info: any) => info.label).indexOf(x.label) === i);
@@ -230,6 +247,26 @@ export class CustomFieldsAdministrationComponent implements OnInit {
             })
         ).subscribe();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     sortValues(customField: any) {
         customField.values = this.sortPipe.transform(customField.values, 'label');

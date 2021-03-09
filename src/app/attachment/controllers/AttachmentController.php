@@ -41,11 +41,27 @@ use User\models\UserModel;
 
 class AttachmentController
 {
+    private static function Bt_writeLog($args = [])
+    {
+        \SrcCore\controllers\LogsController::add([
+            'isTech'    => true,
+            'moduleId'  => $GLOBALS['batchName'],
+            'level'     => $args['level'],
+            'tableName' => '',
+            'recordId'  => $GLOBALS['batchName'],
+            'eventType' => $GLOBALS['batchName'],
+            'eventId'   => $args['message']
+        ]);
+    }
+
     public function create(Request $request, Response $response)
     {
+
         $body = $request->getParsedBody();
 
+
         $control = AttachmentController::controlAttachment(['body' => $body]);
+
         if (!empty($control['errors'])) {
             return $response->withStatus(400)->withJson(['errors' => $control['errors']]);
         }
@@ -419,6 +435,7 @@ class AttachmentController
     public function getThumbnailContent(Request $request, Response $response, array $args)
     {
         if (!Validator::intVal()->validate($args['id'])) {
+            self::Bt_writeLog(['level' => 'INFO', 'message' => "----- AttachmentController ------ TRACE 1 ------ "]);
             return $response->withStatus(400)->withJson(['errors' => 'Route id is not an integer']);
         }
 
@@ -429,22 +446,29 @@ class AttachmentController
             'limit'     => 1
         ]);
         if (empty($attachment[0])) {
+            self::Bt_writeLog(['level' => 'INFO', 'message' => "----- AttachmentController ------ TRACE 2 ------ "]);
             return $response->withStatus(403)->withJson(['errors' => 'Attachment not found']);
         }
 
         if (!ResController::hasRightByResId(['resId' => [$attachment[0]['res_id_master']], 'userId' => $GLOBALS['id']])) {
+            self::Bt_writeLog(['level' => 'INFO', 'message' => "----- AttachmentController ------ TRACE 3 ------ "]);
             return $response->withStatus(403)->withJson(['errors' => 'Document out of perimeter']);
         }
 
         $pathToThumbnail = 'dist/assets/noThumbnail.png';
-
+        self::Bt_writeLog(['level' => 'INFO', 'message' => "----- AttachmentController ------ TRACE 4 ------ $pathToThumbnail"]);
         $tnlAdr = AdrModel::getTypedAttachAdrByResId([
             'select'    => ['docserver_id', 'path', 'filename'],
             'resId'     => $args['id'],
             'type'      => 'TNL'
         ]);
 
+        foreach ($tnlAdr as $key => $value) {
+            self::Bt_writeLog(['level' => 'INFO', 'message' => "----- AttachmentController ------ TRACE 5 ------ KEY = $key / VALUE = $value"]);
+        }
+
         if (empty($tnlAdr)) {
+            self::Bt_writeLog(['level' => 'INFO', 'message' => "----- AttachmentController ------ TRACE 6 ------"]);
             ConvertThumbnailController::convert(['type' => 'attachment', 'resId' => $args['id']]);
             
             $tnlAdr = AdrModel::getTypedAttachAdrByResId([
@@ -452,29 +476,37 @@ class AttachmentController
                 'resId'     => $args['id'],
                 'type'      => 'TNL'
             ]);
+            foreach ($tnlAdr as $key => $value) {
+                self::Bt_writeLog(['level' => 'INFO', 'message' => "----- AttachmentController ------ TRACE 6.1 ------ KEY = $key / VALUE = $value"]);
+            }
         }
 
         if (!empty($tnlAdr)) {
+            self::Bt_writeLog(['level' => 'INFO', 'message' => "----- AttachmentController ------ TRACE 7 ------"]);
             $docserver = DocserverModel::getByDocserverId(['docserverId' => $tnlAdr['docserver_id'], 'select' => ['path_template']]);
             if (empty($docserver['path_template']) || !file_exists($docserver['path_template'])) {
                 return $response->withStatus(400)->withJson(['errors' => 'Docserver does not exist']);
             }
 
             $pathToThumbnail = $docserver['path_template'] . str_replace('#', DIRECTORY_SEPARATOR, $tnlAdr['path']) . $tnlAdr['filename'];
+            self::Bt_writeLog(['level' => 'INFO', 'message' => "----- AttachmentController ------ TRACE 8 ------ $pathToThumbnail"]);
         }
 
         $fileContent = file_get_contents($pathToThumbnail);
         if ($fileContent === false) {
+            self::Bt_writeLog(['level' => 'INFO', 'message' => "----- AttachmentController ------ TRACE 9 ------"]);
             return $response->withStatus(404)->withJson(['errors' => 'Thumbnail not found on docserver']);
         }
 
         $finfo    = new \finfo(FILEINFO_MIME_TYPE);
         $mimeType = $finfo->buffer($fileContent);
         $pathInfo = pathinfo($pathToThumbnail);
-
+        foreach ($pathInfo as $key => $value) {
+            self::Bt_writeLog(['level' => 'INFO', 'message' => "----- AttachmentController ------ TRACE 10 ------ KEY = $key / VALUE = $value"]);
+        }
         $response->write($fileContent);
         $response = $response->withAddedHeader('Content-Disposition', "inline; filename=maarch.{$pathInfo['extension']}");
-
+        self::Bt_writeLog(['level' => 'INFO', 'message' => "----- AttachmentController ------ TRACE 11 ------ $response->withHeader('Content-Type', $mimeType);"]);
         return $response->withHeader('Content-Type', $mimeType);
     }
     
@@ -900,6 +932,7 @@ class AttachmentController
             return ['errors' => 'Body type is empty or not a string'];
         }
 
+        self::Bt_writeLog(['level' => 'INFO', 'message' => "----- AttachmentController ------ resIdMaster == ".$body['resIdMaster']. " --- userId == " .$GLOBALS['id']]);
         if (!ResController::hasRightByResId(['resId' => [$body['resIdMaster']], 'userId' => $GLOBALS['id']])) {
             return ['errors' => 'Body resIdMaster is out of perimeter'];
         }

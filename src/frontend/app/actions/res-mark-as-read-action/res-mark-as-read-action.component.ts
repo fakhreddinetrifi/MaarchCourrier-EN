@@ -8,19 +8,17 @@ import { tap, finalize, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 
 @Component({
-    templateUrl: "../confirm-action/confirm-action.component.html",
+    templateUrl: '../confirm-action/confirm-action.component.html',
     styleUrls: ['../confirm-action/confirm-action.component.scss'],
 })
 export class ResMarkAsReadActionComponent implements OnInit {
-
-    
     loading: boolean = false;
-
     @ViewChild('noteEditor', { static: true }) noteEditor: NoteEditorComponent;
 
     constructor(public translate: TranslateService, public http: HttpClient, private notify: NotificationService, public dialogRef: MatDialogRef<ResMarkAsReadActionComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
-    ngOnInit(): void { }
+    ngOnInit(): void {
+    }
 
     onSubmit() {
         this.loading = true;

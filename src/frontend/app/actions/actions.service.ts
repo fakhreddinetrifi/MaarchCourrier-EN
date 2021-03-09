@@ -68,7 +68,8 @@ export class ActionsService implements OnDestroy {
     processActionRoute: string;
 
     private eventAction = new Subject<any>();
-
+    private customSubject = new Subject<any>();
+    customObservable = this.customSubject.asObservable();
     constructor(
         public translate: TranslateService,
         public http: HttpClient,
@@ -257,7 +258,7 @@ export class ActionsService implements OnDestroy {
             console.debug(`Unlock resources : ${resIds}`);
             this.http.put(`../rest/resourcesList/users/${userId}/groups/${groupId}/baskets/${basketId}/unlock`, { resources: resIds }).pipe(
                 catchError((err: any) => {
-                    this.notify.handleErrors(err);
+                    // this.notify.handleErrors(err);
                     return of(false);
                 })
             ).subscribe();
@@ -706,6 +707,7 @@ export class ActionsService implements OnDestroy {
 
     noConfirmAction(options: any = null) {
         const dataActionToSend = this.setDatasActionToSend();
+        console.log(dataActionToSend)
         if (dataActionToSend.resIds.length === 0) {
             this.http.post('../rest/resources', dataActionToSend.resource).pipe(
                 tap((data: any) => {
@@ -1191,5 +1193,10 @@ export class ActionsService implements OnDestroy {
                 return of(false);
             })
         ).subscribe();
+    }
+
+    // Service message commands
+    callOthersMethodes(value?: boolean) {
+        this.customSubject.next(value);
     }
 }

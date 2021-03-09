@@ -8,14 +8,13 @@ import { tap, finalize, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { FunctionsService } from '@service/functions.service';
 import { AvisWorkflowComponent } from '../../avis/avis-workflow.component';
+import {id} from '@swimlane/ngx-charts';
 
 @Component({
-    templateUrl: "send-avis-workflow-action.component.html",
+    templateUrl: 'send-avis-workflow-action.component.html',
     styleUrls: ['send-avis-workflow-action.component.scss'],
 })
 export class SendAvisWorkflowComponent implements AfterViewInit {
-
-    
     loading: boolean = false;
 
     resourcesError: any[] = [];
@@ -25,7 +24,6 @@ export class SendAvisWorkflowComponent implements AfterViewInit {
     opinionLimitDate: Date = null;
 
     today: Date = new Date();
-
     @ViewChild('noteEditor', { static: true }) noteEditor: NoteEditorComponent;
     @ViewChild('appAvisWorkflow', { static: false }) appAvisWorkflow: AvisWorkflowComponent;
 
@@ -58,9 +56,7 @@ export class SendAvisWorkflowComponent implements AfterViewInit {
             }
         } else {
             const realResSelected: number[] = this.data.resIds.filter((resId: any) => this.resourcesError.map(resErr => resErr.res_id).indexOf(resId) === -1);
-
             const res = await this.appAvisWorkflow.saveAvisWorkflow(realResSelected);
-
             if (res) {
                 this.executeAction(realResSelected);
             }

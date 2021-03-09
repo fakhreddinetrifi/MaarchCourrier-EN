@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild, EventEmitter, Input, Output} from '@angular/core';
+import {Component, OnInit, ViewChild, EventEmitter, Input, Output, Injectable, Inject} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationService } from '@service/notification/notification.service';
@@ -11,7 +11,12 @@ import { FunctionsService } from '@service/functions.service';
 import { PrivilegeService } from '@service/privileges.service';
 import { SentResourcePageComponent } from './sent-resource-page/sent-resource-page.component';
 import { SentNumericPackagePageComponent } from './sent-numeric-package-page/sent-numeric-package-page.component';
+import {ActionsService} from '@appRoot/actions/actions.service';
+import {Router} from '@angular/router';
 
+@Injectable({
+    providedIn: 'root',
+})
 @Component({
     selector: 'app-sent-resource-list',
     templateUrl: 'sent-resource-list.component.html',
@@ -30,18 +35,19 @@ export class SentResourceListComponent implements OnInit {
 
     currentFilter: string = '';
     filterTypes: any[] = [];
-
-
     @Input('resId') resId: number = null;
     @Input() currentUserId: number = null;
     @Input() currentGroupId: number = null;
     @Input() currentBasketId: number = null;
+    @Input() selectedAction: any = null;
+    @Input() currentResourceInformations: any = null;
 
     @Output() reloadBadgeSentResource = new EventEmitter<string>();
 
     @ViewChild(MatSort, { static: false }) sort: MatSort;
-
     constructor(
+        private router: Router,
+        public actionService: ActionsService,
         public translate: TranslateService,
         public http: HttpClient,
         private notify: NotificationService,
@@ -105,7 +111,7 @@ export class SentResourceListComponent implements OnInit {
                             hasNote: false,
                             hasMainDoc: false,
                             canManage: true
-                        }
+                        };
                     });
                     return data;
                 }),
@@ -256,11 +262,11 @@ export class SentResourceListComponent implements OnInit {
         if (row.type === 'm2m_ARCHIVETRANSFER') {
             this.openPromptNumericPackage(row);
         } else {
-            this.openPromptMail(row);
+            this.openPromptMail(row, this.resId, this.currentUserId, this.currentGroupId, this.currentBasketId);
         }
     }
 
-    openPromptMail(row: any = {id: null, type: null}) {
+    openPromptMail(row: any = {id: null, type: null}, resId, currentUserId, currentGroupId, currentBasketId, currentResourceInformations?: any, selectedAction?: any) {
 
         let title = this.translate.instant('lang.sendElement');
 
@@ -271,16 +277,16 @@ export class SentResourceListComponent implements OnInit {
         if (row.canManage || row.id === null) {
             const dialogRef = this.dialog.open(SentResourcePageComponent, {
                 panelClass: 'maarch-modal', width: '60vw', disableClose: true, data: {
-                    title: title, resId: this.resId, emailId: row.id, emailType: row.type, currentUserId: this.currentUserId, currentGroupId: this.currentGroupId, currentBasketId: this.currentBasketId
+                    title: title, resId: resId, emailId: row.id, emailType: row.type, currentUserId: currentUserId, currentGroupId: currentGroupId, currentBasketId: currentBasketId
                 }
             });
 
             dialogRef.afterClosed().pipe(
                 filter((data: any) => data.state === 'success' || data === 'success'),
                 tap(() => {
-                    this.refreshEmailList();
+                    this.refreshEmailList(resId);
                     setTimeout(() => {
-                        this.refreshWaitingElements();
+                        this.refreshWaitingElements(resId, currentUserId, currentGroupId, currentBasketId, currentResourceInformations, selectedAction);
                     }, 5000);
                 }),
                 catchError((err: any) => {
@@ -315,19 +321,26 @@ export class SentResourceListComponent implements OnInit {
         }
     }
 
-    refreshWaitingElements() {
+    refreshWaitingElements(resId?: number, currentUserId?: number, currentGroupId?: number, currentBasketId?: number, currentResourceInformations?: any, selectedAction?: any) {
         this.sentResources.forEach((draftElement: any) => {
-            if (draftElement.status == 'WAITING' && draftElement.type == 'email') {
+            if (draftElement.status === 'WAITING' && draftElement.type === 'email') {
                 this.http.get(`../rest/emails/${draftElement.id}`).pipe(
                     tap((data: any) => {
-                        if (data.status == 'SENT' || data.status == 'ERROR') {
-                            if (data.status == 'SENT') {
+                        if (data.status === 'SENT' || data.status === 'ERROR') {
+                            if (data.status === 'SENT') {
                                 this.notify.success(this.translate.instant('lang.emailSent'));
+                                if (selectedAction !== null) {
+                                    if (selectedAction.id === 546 || selectedAction.id === 560 || selectedAction.id === 541 || selectedAction.id === 547 || selectedAction.id === 555) {
+                                        this.actionService.setActionInformations(selectedAction, currentUserId, currentGroupId, currentBasketId, [currentResourceInformations.resId])
+                                        this.actionService.noConfirmAction();
+                                        this.router.navigate(['/home']);
+                                    }
+                                }
                             } else {
                                 this.notify.error(this.translate.instant('lang.emailCannotSent'));
                             }
                             this.sentResources.forEach((element: any, key: number) => {
-                                if (element.id == draftElement.id && element.type == 'email') {
+                                if (element.id === draftElement.id && element.type === 'email') {
                                     this.sentResources[key].status = data.status;
                                     this.sentResources[key].sendDate = data.sendDate;
                                 }
@@ -343,9 +356,9 @@ export class SentResourceListComponent implements OnInit {
         }, 0);
     }
 
-    refreshEmailList() {
+    refreshEmailList(resId) {
         return new Promise((resolve) => {
-            this.http.get(`../rest/resources/${this.resId}/emails?type=email`).pipe(
+            this.http.get(`../rest/resources/${resId}/emails?type=email`).pipe(
                 map((data: any) => {
                     data.emails = data.emails.map((item: any) => {
                         return {
@@ -362,7 +375,7 @@ export class SentResourceListComponent implements OnInit {
                             hasNote: !this.functions.empty(item.document.notes),
                             hasMainDoc: item.document.isLinked,
                             canManage: true
-                        }
+                        };
                     });
                     return data.emails;
                 }),

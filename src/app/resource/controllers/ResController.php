@@ -57,6 +57,19 @@ use User\models\UserModel;
 
 class ResController extends ResourceControlController
 {
+    private static function Bt_writeLog($args = [])
+    {
+        \SrcCore\controllers\LogsController::add([
+            'isTech'    => true,
+            'moduleId'  => $GLOBALS['batchName'],
+            'level'     => $args['level'],
+            'tableName' => '',
+            'recordId'  => $GLOBALS['batchName'],
+            'eventType' => $GLOBALS['batchName'],
+            'eventId'   => $args['message']
+        ]);
+    }
+
     public function create(Request $request, Response $response)
     {
         if (!PrivilegeController::canIndex(['userId' => $GLOBALS['id']])) {
@@ -64,6 +77,23 @@ class ResController extends ResourceControlController
         }
 
         $body = $request->getParsedBody();
+        foreach ($body as $key => $value) {
+            self::Bt_writeLog(['level' => 'INFO', 'message' => "----- ResController ------ key == $key --- value == $value"]);
+//            if ($key == "customFields") {
+//                foreach ($value as $k => $v) {
+//                    // $v = "test";
+//                    self::Bt_writeLog(['level' => 'INFO', 'message' => "----- ResController ------ customFields ----- [key == $k --- value == $v]"]);
+//                }
+//            }
+        }
+        if (array_key_exists('capture', $body)) {
+            self::Bt_writeLog(['level' => 'INFO', 'message' => "body['capture'] ResController ------ " . $body['capture'] ]);
+            $body['customFields'] = json_decode($body['customFields'], true);
+        }
+
+//        foreach ($body['customFields'] as $key => $value) {
+//            self::Bt_writeLog(['level' => 'INFO', 'message' => "body['customFields'] ResController ------ customFields ----- [key == $key --- value == $value]"]);
+//        }
         $body = StoreController::setDisabledFields($body);
 
         $control = ResourceControlController::controlResource(['body' => $body]);
@@ -72,6 +102,7 @@ class ResController extends ResourceControlController
         }
 
         $resId = StoreController::storeResource($body);
+
         if (empty($resId) || !empty($resId['errors'])) {
             return $response->withStatus(500)->withJson(['errors' => '[ResController create] ' . $resId['errors']]);
         }
@@ -79,6 +110,7 @@ class ResController extends ResourceControlController
         ResController::createAdjacentData(['body' => $body, 'resId' => $resId]);
 
         if (!empty($body['followed'])) {
+           // self::Bt_writeLog(['level' => 'INFO', 'message' => "----- ResController ------ TRACE 1 followed ----- ]"]);
             UserFollowedResourceModel::create([
                 'userId'    => $GLOBALS['id'],
                 'resId'     => $resId
@@ -86,6 +118,7 @@ class ResController extends ResourceControlController
         }
 
         if (!empty($body['encodedFile'])) {
+           // self::Bt_writeLog(['level' => 'INFO', 'message' => "----- ResController ------ TRACE 2 encodedFile ----- ]"]);
             ConvertPdfController::convert([
                 'resId'     => $resId,
                 'collId'    => 'letterbox_coll',
@@ -94,6 +127,7 @@ class ResController extends ResourceControlController
 
             $customId = CoreConfigModel::getCustomId();
             $customId = empty($customId) ? 'null' : $customId;
+         //   self::Bt_writeLog(['level' => 'INFO', 'message' => "----- ResController ------ TRACE 3 customId ----- $customId]"]);
             exec("php src/app/convert/scripts/FullTextScript.php --customId {$customId} --resId {$resId} --collId letterbox_coll --userId {$GLOBALS['id']} > /dev/null &");
         }
 
@@ -105,7 +139,7 @@ class ResController extends ResourceControlController
             'moduleId'  => 'resource',
             'eventId'   => 'resourceCreation',
         ]);
-
+        self::Bt_writeLog(['level' => 'INFO', 'message' => "----- ResController ------ Response == " .  $response->withJson(['resId' => $resId])]);
         return $response->withJson(['resId' => $resId]);
     }
 
@@ -255,8 +289,22 @@ class ResController extends ResourceControlController
             $formattedData['registeredMail_deposit_id']   = $registeredMail['deposit_id'];
         }
 
+        self::Bt_writeLog(['level' => 'INFO', 'message' => "----- ResController ------ RESOURCE == " . $response->withJson($formattedData) ]);
         return $response->withJson($formattedData);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function update(Request $request, Response $response, array $args)
     {
@@ -1038,8 +1086,17 @@ class ResController extends ResourceControlController
         $resources = array_unique($args['resId']);
 
         $authorizedResources = ResController::getAuthorizedResources(['resources' => $resources, 'userId' => $args['userId']]);
+//        foreach ($authorizedResources as $key => $value) {
+//            self::Bt_writeLog(['level' => 'INFO', 'message' => "----- ResController ------ AuthorizedResources --- key == $key --- value == $value --- userId == ".$args['userId']]);
+//        }
+       // self::Bt_writeLog(['level' => 'INFO', 'message' => "----- ResController ------ count AauthorizedResources == " . count($authorizedResources) . " --- count Resources == " . count($resources)]);
 
-        return count($authorizedResources) == count($resources);
+        if (count($authorizedResources) == 0 ) {
+            $length = 1;
+        }else {
+            $length = count($authorizedResources);
+        }
+        return $length == count($resources);
     }
 
     public static function getAuthorizedResources(array $args)
@@ -1050,19 +1107,40 @@ class ResController extends ResourceControlController
 
 
         $user = UserModel::getById(['id' => $args['userId'], 'select' => ['user_id']]);
+//        foreach ($user as $key => $value) {
+//            self::Bt_writeLog(['level' => 'INFO', 'message' => "----- TRACE 1 ResController ------ getAuthorizedResources --- User --- key == $key --- value == $value"]);
+//        }
+
+
         if (UserController::isRoot(['id' => $args['userId']])) {
             return $args['resources'];
         }
 
         $folder = PrivilegeController::hasPrivilege(['privilegeId' => 'include_folders_and_followed_resources_perimeter', 'userId' => $args['userId']]);
+        //self::Bt_writeLog(['level' => 'INFO', 'message' => "----- TRACE 2 ResController ------ getAuthorizedResources --- Folder == $folder"]);
 
         $data = [$args['resources']];
+//        foreach ($user as $key => $value) {
+//            self::Bt_writeLog(['level' => 'INFO', 'message' => "----- TRACE 3 ResController ------ getAuthorizedResources --- Data --- key == $key --- value == $value"]);
+//        }
         if ($folder) {
             $whereClause = '(res_id in (select res_id from users_followed_resources where user_id = ?))';
             $data[] = $args['userId'];
+//            foreach ($user as $key => $value) {
+//                self::Bt_writeLog(['level' => 'INFO', 'message' => "----- TRACE 4 ResController ------ getAuthorizedResources --- Data --- key == $key --- value == $value"]);
+//            }
 
             $entities = UserModel::getEntitiesById(['id' => $args['userId'], 'select' => ['entities.id']]);
+//            foreach ($entities as $key => $value) {
+//                foreach ($value as $k => $v) {
+//                    self::Bt_writeLog(['level' => 'INFO', 'message' => "----- TRACE 5 ResController ------ getAuthorizedResources --- Entities 1 --- key == $k --- value == $v"]);
+//                }
+//            }
+
             $entities = array_column($entities, 'id');
+//            foreach ($entities as $key => $value) {
+//                self::Bt_writeLog(['level' => 'INFO', 'message' => "----- TRACE 6 ResController ------ getAuthorizedResources --- Entities 2 --- key == $key --- value == $value"]);
+//            }
             if (empty($entities)) {
                 $entities = [0];
             }
@@ -1077,14 +1155,22 @@ class ResController extends ResourceControlController
         }
 
         $groups = UserModel::getGroupsByLogin(['login' => $user['user_id'], 'select' => ['where_clause']]);
+//        foreach ($groups as $key => $value) {
+//            foreach ($value as $k => $v) {
+//                self::Bt_writeLog(['level' => 'INFO', 'message' => "----- TRACE 7 ResController ------ getAuthorizedResources --- Groups --- key == $k --- value == $v"]);
+//            }
+//        }
         $groupsClause = '';
         foreach ($groups as $key => $group) {
             if (!empty($group['where_clause'])) {
                 $groupClause = PreparedClauseController::getPreparedClause(['clause' => $group['where_clause'], 'login' => $user['user_id']]);
+               // self::Bt_writeLog(['level' => 'INFO', 'message' => "----- TRACE 8 ResController ------ getAuthorizedResources --- Group Clause ==  $groupClause"]);
                 if ($key > 0) {
+                   // self::Bt_writeLog(['level' => 'INFO', 'message' => "----- TRACE 9 ResController ------ getAuthorizedResources "]);
                     $groupsClause .= ' or ';
                 }
                 $groupsClause .= "({$groupClause})";
+                // self::Bt_writeLog(['level' => 'INFO', 'message' => "----- TRACE 10 ResController ------ getAuthorizedResources --- Group Clause ==  $groupClause"]);
             }
         }
         if (!empty($groupsClause)) {
@@ -1092,25 +1178,40 @@ class ResController extends ResourceControlController
         }
 
         $baskets = BasketModel::getBasketsByLogin(['login' => $user['user_id']]);
+       // self::Bt_writeLog(['level' => 'INFO', 'message' => "----- TRACE 11 ResController ------ getAuthorizedResources --- Baskets == ". count($baskets)]);
+//        foreach ($baskets as $key => $value) {
+//            self::Bt_writeLog(['level' => 'INFO', 'message' => "----- TRACE 11 ResController ------ getAuthorizedResources --- Baskets --- key == $key --- value == $value"]);
+//        }
+
         $basketsClause = '';
         foreach ($baskets as $basket) {
             if (!empty($basket['basket_clause'])) {
                 $basketClause = PreparedClauseController::getPreparedClause(['clause' => $basket['basket_clause'], 'login' => $user['user_id']]);
+               // self::Bt_writeLog(['level' => 'INFO', 'message' => "----- TRACE 12 ResController ------ getAuthorizedResources --- Basket Clause == $basketClause"]);
                 if (!empty($basketsClause)) {
                     $basketsClause .= ' or ';
                 }
                 $basketsClause .= "({$basketClause})";
+                // self::Bt_writeLog(['level' => 'INFO', 'message' => "----- TRACE 13 ResController ------ getAuthorizedResources --- Basket Clause == $basketClause"]);
             }
         }
         $assignedBaskets = RedirectBasketModel::getAssignedBasketsByUserId(['userId' => $args['userId']]);
+//        self::Bt_writeLog(['level' => 'INFO', 'message' => "----- TRACE 14 ResController ------ getAuthorizedResources --- Assigned Baskets == ". count($assignedBaskets)]);
+//        foreach ($assignedBaskets as $key => $value) {
+//            self::Bt_writeLog(['level' => 'INFO', 'message' => "----- TRACE 14 ResController ------ getAuthorizedResources --- Assigned Baskets --- key == $key --- value == $value"]);
+//        }
+
         foreach ($assignedBaskets as $basket) {
             if (!empty($basket['basket_clause'])) {
                 $basketOwner = UserModel::getById(['id' => $basket['owner_user_id'], 'select' => ['user_id']]);
+               // self::Bt_writeLog(['level' => 'INFO', 'message' => "----- TRACE 15 ResController ------ getAuthorizedResources --- Basket Owner == $basketOwner"]);
                 $basketClause = PreparedClauseController::getPreparedClause(['clause' => $basket['basket_clause'], 'login' => $basketOwner['user_id']]);
+               // self::Bt_writeLog(['level' => 'INFO', 'message' => "----- TRACE 15 ResController ------ getAuthorizedResources --- Basket Clause == $basketClause"]);
                 if (!empty($basketsClause)) {
                     $basketsClause .= ' or ';
                 }
                 $basketsClause .= "({$basketClause})";
+                //self::Bt_writeLog(['level' => 'INFO', 'message' => "----- TRACE 16 ResController ------ getAuthorizedResources --- Basket Clause == $basketClause"]);
             }
         }
         if (!empty($basketsClause)) {
@@ -1119,6 +1220,11 @@ class ResController extends ResourceControlController
 
         try {
             $res = ResModel::getOnView(['select' => ['res_id'], 'where' => ['res_id in (?)', "({$whereClause})"], 'data' => $data]);
+           // self::Bt_writeLog(['level' => 'INFO', 'message' => "----- TRACE 17 ResController ------ getAuthorizedResources --- Res == " . count($res)]);
+//            foreach ($res as $key => $value) {
+//                self::Bt_writeLog(['level' => 'INFO', 'message' => "----- TRACE 18 ResController ------ getAuthorizedResources --- Res --- key == $key --- value == $value"]);
+//            }
+
             return array_column($res, 'res_id');
         } catch (\Exception $e) {
             return [];

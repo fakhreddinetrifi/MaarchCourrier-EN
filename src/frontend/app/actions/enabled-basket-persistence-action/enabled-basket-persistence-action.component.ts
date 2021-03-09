@@ -8,12 +8,11 @@ import { tap, finalize, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 
 @Component({
-    templateUrl: "../confirm-action/confirm-action.component.html",
+    templateUrl: '../confirm-action/confirm-action.component.html',
     styleUrls: ['../confirm-action/confirm-action.component.scss'],
 })
 export class EnabledBasketPersistenceActionComponent implements OnInit {
 
-    
     loading: boolean = false;
 
     @ViewChild('noteEditor', { static: true }) noteEditor: NoteEditorComponent;

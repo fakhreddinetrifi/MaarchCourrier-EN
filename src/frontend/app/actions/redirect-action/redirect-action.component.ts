@@ -210,7 +210,7 @@ export class RedirectActionComponent implements OnInit {
     changeDest(event: any) {
         this.currentDiffusionListDestRedirect = this.diffusionListDestRedirect;
         const user = event.option.value;
-
+        console.log('user => ' + user)
         this.destUser = {
             difflist_type: 'entity_id',
             item_mode: 'dest',
@@ -219,14 +219,11 @@ export class RedirectActionComponent implements OnInit {
             labelToDisplay: user.labelToDisplay,
             descriptionToDisplay: user.descriptionToDisplay
         };
-
         if (this.data.resIds.length === 1) {
             this.isDestinationChanging = false;
             this.http.get('../rest/resources/' + this.data.resIds[0] + '/users/' + user.id + '/isDestinationChanging')
                 .subscribe((data: any) => {
                     this.isDestinationChanging = data.isDestinationChanging;
-                }, (err: any) => {
-                    this.notify.handleErrors(err);
                 });
 
             if (this.keepDestForRedirection && this.currentDiffusionListDestRedirect.length > 0) {

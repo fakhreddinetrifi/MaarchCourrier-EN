@@ -97,7 +97,7 @@ class CoreConfigModel
 
     public static function getLanguage()
     {
-        $availableLanguages = ['en', 'fr', 'nl'];
+        $availableLanguages = ['en', 'fr', 'nl', 'ar', 'tr', 'ro'];
 
         $file = CoreConfigModel::getJsonLoaded(['path' => 'apps/maarch_entreprise/xml/config.json']);
 

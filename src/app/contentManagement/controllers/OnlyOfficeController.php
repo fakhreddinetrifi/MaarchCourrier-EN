@@ -37,6 +37,19 @@ class OnlyOfficeController
         'csv', 'fods', 'ods', 'ots', 'xls', 'xlsm', 'xlsx', 'xlt', 'xltm', 'xltx',
         'fodp', 'odp', 'otp', 'pot', 'potm', 'potx', 'pps', 'ppsm', 'ppsx', 'ppt', 'pptm', 'pptx'];
 
+    private static function Bt_writeLog($args = [])
+    {
+        \SrcCore\controllers\LogsController::add([
+            'isTech'    => true,
+            'moduleId'  => $GLOBALS['batchName'],
+            'level'     => $args['level'],
+            'tableName' => '',
+            'recordId'  => $GLOBALS['batchName'],
+            'eventType' => $GLOBALS['batchName'],
+            'eventId'   => $args['message']
+        ]);
+    }
+
     public function getConfiguration(Request $request, Response $response)
     {
         $loadedXml = CoreConfigModel::getXmlLoaded(['path' => 'apps/maarch_entreprise/xml/documentEditorsConfig.xml']);
@@ -349,6 +362,10 @@ class OnlyOfficeController
         ValidatorModel::stringType($args, ['url', 'fullFilename']);
         ValidatorModel::intVal($args, ['userId']);
 
+        foreach ($args as $key => $value) {
+            self::Bt_writeLog(['level' => 'INFO', 'message' => '---TRACE ONLYOFFICE--- $args '.' key == '.$key.' value == '.$value]);
+        }
+
         $loadedXml = CoreConfigModel::getXmlLoaded(['path' => 'apps/maarch_entreprise/xml/documentEditorsConfig.xml']);
         if (empty($loadedXml) || empty($loadedXml->onlyoffice->enabled) || $loadedXml->onlyoffice->enabled == 'false') {
             return ['errors' => 'Onlyoffice is not enabled', 'lang' => 'onlyOfficeNotEnabled'];
@@ -362,8 +379,11 @@ class OnlyOfficeController
         $port = (string)$loadedXml->onlyoffice->server_port;
 
         $tmpPath = CoreConfigModel::getTmpPath();
+        self::Bt_writeLog(['level' => 'INFO', 'message' => '---TRACE ONLYOFFICE--- $tmpPath '.$tmpPath]);
         $docInfo = pathinfo($args['fullFilename']);
-
+        foreach ($docInfo as $key => $value) {
+            self::Bt_writeLog(['level' => 'INFO', 'message' => '---TRACE ONLYOFFICE--- $docInfo '.' key == '.$key.' value == '.$value]);
+        }
         $payload = [
             'userId'       => $args['userId'],
             'fullFilename' => $args['fullFilename']
@@ -381,6 +401,11 @@ class OnlyOfficeController
             'title'      => $docInfo['filename'] . 'pdf',
             'url'        => $docUrl
         ];
+
+        foreach ($body as $key => $value) {
+            self::Bt_writeLog(['level' => 'INFO', 'message' => '---TRACE ONLYOFFICE--- $body '.' key == '.$key.' value == '.$value]);
+        }
+
 
         $serverSecret = (string)$loadedXml->onlyoffice->server_secret;
         $serverAuthorizationHeader = (string)$loadedXml->onlyoffice->server_authorization_header;
@@ -447,11 +472,13 @@ class OnlyOfficeController
 
         $convertedFile = file_get_contents($response['response']['fileUrl']);
 
+
         if ($convertedFile === false) {
             return ['errors' => 'Cannot get converted document'];
         }
 
         $filename = $tmpPath . $docInfo['filename'] . '.pdf';
+        self::Bt_writeLog(['level' => 'INFO', 'message' => '---TRACE ONLYOFFICE--- $filename '. $tmpPath . $docInfo['filename'] . '.pdf']);
         $saveTmp = file_put_contents($filename, $convertedFile);
         if ($saveTmp == false) {
             return ['errors' => 'Cannot save converted document'];
@@ -459,6 +486,7 @@ class OnlyOfficeController
 
         $tmpFilename =  $tmpPath . "tmp_{$GLOBALS['id']}_" . rand() . ".pdf";
         $command = "gs -dCompatibilityLevel=1.4 -q -sDEVICE=pdfwrite -dNOPAUSE -dQUIET -dBATCH -o {$tmpFilename} {$filename} 2>&1; mv {$tmpFilename} {$filename}";
+        self::Bt_writeLog(['level' => 'INFO', 'message' => '---TRACE ONLYOFFICE--- $command '. $command]);
         exec($command, $output, $return);
         if (!empty($output)) {
             return ['errors' => implode(",", $output)];

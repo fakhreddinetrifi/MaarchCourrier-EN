@@ -111,7 +111,7 @@
                 </app-diffusions-list>
                 <app-sent-resource-list *ngIf="currentTool === 'emails' && !loading" #appSentResource
                     [resId]="currentResourceInformations.resId" [currentUserId]="currentUserId"
-                    [currentGroupId]="currentGroupId" [currentBasketId]="currentBasketId"
+                    [currentGroupId]="currentGroupId" [currentBasketId]="currentBasketId" [selectedAction]="selectedAction" [currentResourceInformations]="currentResourceInformations"
                     (reloadBadgeSentResource)="refreshBadge($event,'emails')">
                 </app-sent-resource-list>
                 <app-visa-workflow *ngIf="currentTool === 'visaCircuit' && !loading" #appVisaWorkflow
@@ -356,7 +356,8 @@
                     [resId]="currentResourceInformations.resId" [expanded]="true">
                 </app-diffusions-list>
                 <app-sent-resource-list *ngIf="modal.id === 'emails' && !loading" #appSentResource
-                    [resId]="currentResourceInformations.resId"
+                    [resId]="currentResourceInformations.resId" [currentUserId]="currentUserId"
+                    [currentGroupId]="currentGroupId" [currentBasketId]="currentBasketId" [selectedAction]="selectedAction" [currentResourceInformations]="currentResourceInformations"
                     (reloadBadgeSentResource)="refreshBadge($event,'emails')">
                 </app-sent-resource-list>
                 <app-visa-workflow *ngIf="modal.id === 'visaCircuit' && !loading"

@@ -124,6 +124,7 @@ import { DevToolComponent } from '@service/debug/dev-tool.component';
 import { DevLangComponent } from '@service/debug/dev-lang.component';
 import { AcknowledgementReceptionComponent } from './registeredMail/acknowledgement-reception/acknowledgement-reception.component';
 import { DatePipe } from '@angular/common';
+import {FormsExternalComponent} from '@appRoot/forms-external/forms-external.component';
 
 @Injectable()
 export class MyHammerConfig extends HammerGestureConfig {
@@ -241,7 +242,8 @@ export class MyHammerConfig extends HammerGestureConfig {
         CheckReplyRecordManagementComponent,
         ResetRecordManagementComponent,
         CheckAcknowledgmentRecordManagementComponent,
-        TechnicalInformationComponent
+        TechnicalInformationComponent,
+        FormsExternalComponent
     ],
     exports : [
         SharedModule

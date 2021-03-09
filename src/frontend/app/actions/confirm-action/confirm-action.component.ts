@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, ViewChild } from '@angular/core';
+import {Component, OnInit, Inject, ViewChild, Injectable} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationService } from '@service/notification/notification.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -7,15 +7,16 @@ import { NoteEditorComponent } from '../../notes/note-editor.component';
 import { tap, exhaustMap, catchError, finalize } from 'rxjs/operators';
 import { of } from 'rxjs';
 
+@Injectable({
+    providedIn: 'root',
+})
+
 @Component({
-    templateUrl: "confirm-action.component.html",
+    templateUrl: 'confirm-action.component.html',
     styleUrls: ['confirm-action.component.scss'],
 })
 export class ConfirmActionComponent implements OnInit {
-
-    
     loading: boolean = false;
-
     @ViewChild('noteEditor', { static: true }) noteEditor: NoteEditorComponent;
 
     constructor(
@@ -26,7 +27,8 @@ export class ConfirmActionComponent implements OnInit {
         @Inject(MAT_DIALOG_DATA) public data: any
     ) { }
 
-    ngOnInit(): void { }
+    ngOnInit(): void {
+    }
 
     onSubmit() {
         this.loading = true;

@@ -15,16 +15,13 @@ import { PrivilegeService } from '@service/privileges.service';
 
 @Component({
     selector: 'app-history-list',
-    templateUrl: "history.component.html",
+    templateUrl: 'history.component.html',
     styleUrls: ['history.component.scss'],
 })
 export class HistoryComponent implements OnInit {
-
-    
     loading: boolean = false;
 
-    fullHistoryMode : boolean = true;
-    
+    fullHistoryMode: boolean = true;
     filtersChange = new EventEmitter();
 
     data: any;
@@ -77,7 +74,7 @@ export class HistoryComponent implements OnInit {
     ngOnInit(): void {
         if (this.resId !== null) {
             this.displayedColumnsHistory = ['event_date', 'info'];
-            this.fullHistoryMode = !this.privilegeService.hasCurrentUserPrivilege('view_doc_history')
+            this.fullHistoryMode = !this.privilegeService.hasCurrentUserPrivilege('view_doc_history');
         } else {
             this.displayedColumnsHistory = ['event_date', 'record_id', 'userLabel', 'info', 'remote_ip'];
         }

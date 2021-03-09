@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, ViewChild, AfterViewInit } from '@angular/core';
+import {Component, OnInit, Inject, ViewChild, AfterViewInit, OnChanges} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationService } from '@service/notification/notification.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -10,12 +10,10 @@ import { FunctionsService } from '@service/functions.service';
 import { AvisWorkflowComponent } from '../../avis/avis-workflow.component';
 
 @Component({
-    templateUrl: "send-avis-parallel-action.component.html",
+    templateUrl: 'send-avis-parallel-action.component.html',
     styleUrls: ['send-avis-parallel-action.component.scss'],
 })
-export class SendAvisParallelComponent implements AfterViewInit {
-
-    
+export class SendAvisParallelComponent implements AfterViewInit, OnInit {
     loading: boolean = false;
 
     resourcesError: any[] = [];
@@ -25,7 +23,7 @@ export class SendAvisParallelComponent implements AfterViewInit {
     opinionLimitDate: Date = null;
 
     today: Date = new Date();
-
+    item: any;
     availableRoles: any[] = [];
 
     @ViewChild('noteEditor', { static: true }) noteEditor: NoteEditorComponent;
@@ -39,13 +37,57 @@ export class SendAvisParallelComponent implements AfterViewInit {
         @Inject(MAT_DIALOG_DATA) public data: any,
         public functions: FunctionsService) { }
 
+
+    ngOnInit() {
+    }
+
     async ngAfterViewInit(): Promise<void> {
-        if (this.data.resIds.length === 1) {
-            await this.appAvisWorkflow.loadParallelWorkflow(this.data.resIds[0]);
-            if (this.appAvisWorkflow.emptyWorkflow()) {
-                this.appAvisWorkflow.loadDefaultWorkflow(this.data.resIds[0]);
+        this.http.get(`../rest/resources/${this.data.resIds[0]}`).subscribe(
+            (data: any) => {
+                const assessment = Object.values(data.customFields)[9];
+                if (data.doctype === 1204 && (data.status === 'FeedbackCl' || data.status === 'NEW') && assessment === 'yes') {
+                    this.appAvisWorkflow.resetWorkflow();
+                    this.opinionLimitDate = new Date();
+                    this.noteEditor.setNoteContent('please send your assessment feedback');
+                    this.item = {
+                        id: 1064,
+                        label: 'RiskOperationCircuit',
+                        title: 'RiskOperationCircuit',
+                        type: 'entity'
+                    };
+                    this.appAvisWorkflow.addItemToWorkflow(this.item);
+                } else if (data.doctype === 1204 && data.status === 'EAVIS' && assessment === 'yes') {
+                    this.appAvisWorkflow.resetWorkflow();
+                    this.opinionLimitDate = new Date();
+                    this.noteEditor.setNoteContent('please review this request');
+                    this.item = {
+                        id: 1065,
+                        label: 'Risk Agent Opinion',
+                        title: 'Risk Agent Opinion',
+                        type: 'entity'
+                    };
+                    this.appAvisWorkflow.addItemToWorkflow(this.item);
+                } else if (data.doctype === 1204 && (data.status === 'approvedon' || assessment === 'no' || data.status === 'precon' || data.status === 'rejcont')) {
+                    this.appAvisWorkflow.resetWorkflow();
+                    this.opinionLimitDate = new Date();
+                    this.noteEditor.setNoteContent('please review this request');
+                    this.item = {
+                        id: 1066,
+                        label: 'reviewWithManger',
+                        title: 'reviewWithManger',
+                        type: 'entity'
+                    };
+                    this.appAvisWorkflow.addItemToWorkflow(this.item);
+                } else {
+                    if (this.data.resIds.length === 1) {
+                        this.appAvisWorkflow.loadParallelWorkflow(this.data.resIds[0]);
+                        if (this.appAvisWorkflow.emptyWorkflow()) {
+                            this.appAvisWorkflow.loadDefaultWorkflow(this.data.resIds[0]);
+                        }
+                    }
+                }
             }
-        }
+        );
     }
 
     async onSubmit() {

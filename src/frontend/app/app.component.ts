@@ -48,7 +48,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         private adapter: DateAdapter<any>,
         public dialog: MatDialog,
     ) {
-        translate.setDefaultLang('en');
+        translate.setDefaultLang('fr');
         iconReg.addSvgIcon('maarchLogo', sanitizer.bypassSecurityTrustResourceUrl('../rest/images?image=onlyLogo'));
         iconReg.addSvgIcon('maarchLogoFull', sanitizer.bypassSecurityTrustResourceUrl('../rest/images?image=logo'));
         iconReg.addSvgIcon('maarchLogoWhite', sanitizer.bypassSecurityTrustResourceUrl('assets/logo_only_white.svg'));

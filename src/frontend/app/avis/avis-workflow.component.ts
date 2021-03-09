@@ -18,8 +18,6 @@ import { ConfirmComponent } from '../../plugins/modal/confirm.component';
     styleUrls: ['avis-workflow.component.scss']
 })
 export class AvisWorkflowComponent implements OnInit {
-
-    
     avisWorkflow: any = {
         roles: ['sign', 'avis'],
         items: []
@@ -122,7 +120,7 @@ export class AvisWorkflowComponent implements OnInit {
                         return {
                             ...item,
                             item_entity: item.descriptionToDisplay,
-                        }
+                        };
                     });
                 }
                 this.avisWorkflowClone = JSON.parse(JSON.stringify(this.avisWorkflow.items));
@@ -279,7 +277,7 @@ export class AvisWorkflowComponent implements OnInit {
         this.loading = true;
         this.avisWorkflow.items = [];
         return new Promise((resolve, reject) => {
-            this.http.get("../rest/resources/" + resId + "/opinionCircuit").pipe(
+            this.http.get('../rest/resources/' + resId + '/opinionCircuit').pipe(
                 tap((data: any) => {
                     if (!this.functions.empty(data.itemsRemoved)) {
                         this.notify.error(this.translate.instant('lang.itemRemovedFromAvisTemplate') + ' : ' + data.itemsRemoved.join(', '));
@@ -314,8 +312,9 @@ export class AvisWorkflowComponent implements OnInit {
         this.loading = true;
         this.avisWorkflow.items = [];
         return new Promise((resolve, reject) => {
-            this.http.get("../rest/resources/" + resId + "/parallelOpinion")
+            this.http.get('../rest/resources/' + resId + '/parallelOpinion')
                 .subscribe((data: any) => {
+                    console.log(data)
                     data.forEach((element: any) => {
                         this.avisWorkflow.items.push(
                             {
@@ -462,12 +461,14 @@ export class AvisWorkflowComponent implements OnInit {
                     hasPrivilege : true,
                     isValid : true
                 });
+                this.avisWorkflow.items.forEach(data => console.log(data))
                 this.searchAvisUser.reset();
                 this.searchAvisUserInput.nativeElement.blur();
                 resolve(true);
             } else if (item.type === 'entity') {
                 this.http.get(`../rest/listTemplates/${item.id}`).pipe(
                     tap((data: any) => {
+                        console.log(data)
                         this.avisWorkflow.items = this.avisWorkflow.items.concat(
                             data.listTemplate.items.map((itemTemplate: any) => {
                                 return {
@@ -479,7 +480,7 @@ export class AvisWorkflowComponent implements OnInit {
                                     difflist_type: this.mode === 'circuit' ? 'AVIS_CIRCUIT' : 'entity_id',
                                     hasPrivilege : itemTemplate.hasPrivilege,
                                     isValid : itemTemplate.isValid
-                                }
+                                };
                             })
                         );
                         this.searchAvisUser.reset();

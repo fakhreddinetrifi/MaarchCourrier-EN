@@ -64,6 +64,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
         this.currentDate = event.toLocaleDateString(this.translate.instant('lang.langISO'), options);
 
+        this.http.get('../rest/currentUser/profile').subscribe(
+            data => console.log(data)
+        )
+
         this.http.get('../rest/home')
             .subscribe((data: any) => {
                 this.homeData = data;

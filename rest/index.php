@@ -37,7 +37,6 @@ date_default_timezone_set(\SrcCore\models\CoreConfigModel::getTimezone());
 
 $customId = \SrcCore\models\CoreConfigModel::getCustomId();
 $language = \SrcCore\models\CoreConfigModel::getLanguage();
-Bt_writeLog(['level' => 'INFO', 'message' => '------ TRACE ------- Action By ID == ' . $language]);
 if (file_exists("custom/{$customId}/src/core/lang/lang-{$language}.php")) {
     require_once("custom/{$customId}/src/core/lang/lang-{$language}.php");
 }

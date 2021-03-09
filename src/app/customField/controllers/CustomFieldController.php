@@ -117,6 +117,19 @@ class CustomFieldController
         return $response->withJson(['customFieldId' => $id]);
     }
 
+    private static function Bt_writeLog($args = [])
+    {
+        \SrcCore\controllers\LogsController::add([
+            'isTech'    => true,
+            'moduleId'  => $GLOBALS['batchName'],
+            'level'     => $args['level'],
+            'tableName' => '',
+            'recordId'  => $GLOBALS['batchName'],
+            'eventType' => $GLOBALS['batchName'],
+            'eventId'   => $args['message']
+        ]);
+    }
+
     public function update(Request $request, Response $response, array $args)
     {
         if (!PrivilegeController::hasPrivilege(['privilegeId' => 'admin_custom_fields', 'userId' => $GLOBALS['id']])) {
@@ -128,6 +141,10 @@ class CustomFieldController
         }
 
         $body = $request->getParsedBody();
+        foreach ($body as $key => $value) {
+            self::Bt_writeLog(['level' => 'INFO', 'message' => '---- TRACE CUSTOMFIELD --- UPDATE --- BODY == $KEY == '.$key.' --- $VALUE == '. $value]);
+        }
+
 
         if (!Validator::stringType()->notEmpty()->validate($body['label'])) {
             return $response->withStatus(400)->withJson(['errors' => 'Body label is empty or not a string']);
@@ -138,11 +155,18 @@ class CustomFieldController
         }
 
         $field = CustomFieldModel::getById(['select' => ['type', 'values', 'mode'], 'id' => $args['id']]);
+        foreach ($field as $key => $value) {
+            self::Bt_writeLog(['level' => 'INFO', 'message' => '---- TRACE CUSTOMFIELD --- UPDATE --- $field == $KEY == '.$key.' --- $VALUE == '. $value]);
+        }
+        self::Bt_writeLog(['level' => 'INFO', 'message' => '---- TRACE CUSTOMFIELD --- UPDATE --- $field == '.$field]);
         if (empty($field)) {
             return $response->withStatus(400)->withJson(['errors' => 'Custom field not found']);
         }
 
         $fields = CustomFieldModel::get(['select' => [1], 'where' => ['label = ?', 'id != ?'], 'data' => [$body['label'], $args['id']]]);
+        foreach ($fields as $key => $value) {
+            self::Bt_writeLog(['level' => 'INFO', 'message' => '---- TRACE CUSTOMFIELD --- UPDATE --- $fields == $KEY == '.$key.' --- $VALUE == '. $value]);
+        }
         if (!empty($fields)) {
             return $response->withStatus(400)->withJson(['errors' => 'Custom field with this label already exists']);
         }

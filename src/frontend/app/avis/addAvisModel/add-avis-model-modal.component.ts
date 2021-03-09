@@ -36,7 +36,7 @@ export class AddAvisModelModalComponent {
                 type: 'user',
                 mode: 'avis'
             }
-        }); 
+        });
     }
 
     onSubmit() {

@@ -1,5 +1,5 @@
 import { COMMA, SEMICOLON, FF_SEMICOLON } from '@angular/cdk/keycodes';
-import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core';
+import {Component, OnInit, Inject, ViewChild, ElementRef, Injectable, AfterViewInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationService } from '@service/notification/notification.service';
@@ -91,7 +91,7 @@ export class SentResourcePageComponent implements OnInit {
     canManage: boolean = false;
     pdfMode: boolean = false;
     htmlMode: boolean = true;
-
+    onBoarding: any;
     @ViewChild('recipientsField', { static: true }) recipientsField: ElementRef<HTMLInputElement>;
     @ViewChild('copiesField', { static: false }) copiesField: ElementRef<HTMLInputElement>;
     @ViewChild('invisibleCopiesField', { static: false }) invisibleCopiesField: ElementRef<HTMLInputElement>;
@@ -107,7 +107,8 @@ export class SentResourcePageComponent implements OnInit {
         public privilegeService: PrivilegeService,
         public headerService: HeaderService,
         public translate: TranslateService
-    ) { }
+    ) {
+    }
 
     async ngOnInit(): Promise<void> {
         Object.keys(this.emailAttachTool).forEach(element => {
@@ -142,7 +143,7 @@ export class SentResourcePageComponent implements OnInit {
                 this.setDefaultInfo();
             }
         }
-        // this.loading = false;
+        this.loading = false;
         setTimeout(() => {
             this.initMce();
         }, 0);
@@ -245,28 +246,27 @@ export class SentResourcePageComponent implements OnInit {
 
         this.http.post(`../rest/templates/${templateId}/mergeEmail`, { data: { resId: this.data.resId } }).pipe(
             tap((data: any) => {
-
                 const div = document.createElement('div');
-
-                div.innerHTML = tinymce.get('emailSignature').getContent();
-
-                if (div.getElementsByClassName('signature').length > 0) {
-
+                div.innerHTML = tinymce.activeEditor.getContent();
+                if (div.getElementsByClassName('signature').length > 0 && div.getElementsByClassName('models').length > 0) {
                     const signatureContent = div.getElementsByClassName('signature')[0].innerHTML;
-
+                    div.getElementsByClassName('models')[0].remove();
                     div.getElementsByClassName('signature')[0].remove();
 
-                    tinymce.get('emailSignature').setContent(`${div.innerHTML}${data.mergedDocument}<div class="signature">${signatureContent}</div>`);
+                    tinymce.get('emailSignature').setContent(`${div.innerHTML}<div class="models">${data.mergedDocument}</div><div class="signature">${signatureContent}</div>`);
 
+                } else if (div.getElementsByClassName('models').length > 0) {
+                    div.getElementsByClassName('models')[0].remove();
+                    tinymce.get('emailSignature').setContent(`${div.innerHTML}<div class="models">${data.mergedDocument}</div>`);
                 } else {
-                    tinymce.get('emailSignature').setContent(`${tinymce.get('emailSignature').getContent()}${data.mergedDocument}`);
+                    tinymce.activeEditor.setContent(`${tinymce.activeEditor.getContent()}<div class="models">${data.mergedDocument}</div>`);
                 }
                 if (!this.htmlMode) {
                     tinymce.get('emailSignature').setContent(tinymce.get('emailSignature').getContent({ format: 'text' }));
                 }
 
                 if (!this.functions.empty(data.mergedSubject)) {
-                    this.emailsubject = data.mergedSubject;
+                    this.emailsubject = `[${this.resourceData.subject}] ${data.mergedSubject}`;
                 }
             }),
             catchError((err) => {
@@ -282,6 +282,8 @@ export class SentResourcePageComponent implements OnInit {
 
         this.http.get(`../rest/currentUser/emailSignatures/${templateId}`).pipe(
             tap((data: any) => {
+                console.log(data)
+                console.log(data.emailSignature.content)
                 const div = document.createElement('div');
 
                 div.innerHTML = tinymce.get('emailSignature').getContent();
@@ -317,10 +319,11 @@ export class SentResourcePageComponent implements OnInit {
 
     getEmailData(emailId: number) {
         return new Promise((resolve) => {
+            console.log('emailId ==> ', emailId)
             this.http.get(`../rest/emails/${emailId}`).pipe(
                 tap((data: any) => {
                     this.emailCreatorId = data.userId;
-
+                    console.log('emailCreatorId => ' + this.emailCreatorId);
                     this.recipients = data.recipients.map((item: any) => {
                         return {
                             label: item,
@@ -355,7 +358,6 @@ export class SentResourcePageComponent implements OnInit {
                         label: data.sender.label,
                         email: data.sender.email
                     };
-
                     this.emailContent = data.body;
                     Object.keys(data.document).forEach(element => {
                         if (['id', 'isLinked', 'original'].indexOf(element) === -1) {
@@ -384,6 +386,7 @@ export class SentResourcePageComponent implements OnInit {
                     resolve(true);
                 }),
                 catchError((err) => {
+                    console.log('ERROR');
                     this.notify.handleSoftErrors(err);
                     resolve(false);
                     return of(false);
@@ -415,7 +418,7 @@ export class SentResourcePageComponent implements OnInit {
                         this.emailsubject = this.translate.instant('lang.ARPaper');
                         this.emailContent = data.encodedDocument;
                     } else {
-                        this.emailsubject = this.translate.instant('lang.ARelectronic');
+                        this.emailsubject = this.translate.instant('lang.ARelectronic')
                         this.emailContent = this.b64DecodeUnicode(data.encodedDocument);
                     }
                     resolve(true);
@@ -431,10 +434,13 @@ export class SentResourcePageComponent implements OnInit {
 
     getResourceData() {
         return new Promise((resolve) => {
-            this.http.get(`../rest/resources/${this.data.resId}?light=true`).pipe(
+            this.http.get(`../rest/resources/${this.data.resId}`).pipe(
                 tap((data: any) => {
                     this.resourceData = data;
-
+                    this.onBoarding = {
+                        docType: data.doctype,
+                        status: data.status
+                    };
                     this.emailAttach.document.chrono = this.resourceData.chrono;
                     this.emailAttach.document.label = this.resourceData.subject;
 
@@ -450,23 +456,49 @@ export class SentResourcePageComponent implements OnInit {
     }
 
     setDefaultInfo() {
-        this.emailsubject = `[${this.resourceData.chrono}] ${this.resourceData.subject}`;
-        this.emailsubject = this.emailsubject.substring(0, 70);
+        // this.emailsubject = `[${this.resourceData.chrono}] ${this.resourceData.subject}`;
+       // this.emailsubject = this.emailsubject.substring(0, 70);
         if (this.headerService.user.entities.length === 0) {
             this.currentSender = this.availableSenders[0];
         } else {
             this.currentSender = this.availableSenders.filter(sender => sender.entityId === this.headerService.user.entities[0].id).length > 0 ? this.availableSenders.filter(sender => sender.entityId === this.headerService.user.entities[0].id)[0] : this.availableSenders[0];
         }
-            if (!this.functions.empty(this.resourceData.senders)) {
-                this.resourceData.senders.forEach((sender: any) => {
-                    this.setSender(sender);
-                });
+        if (!this.functions.empty(this.resourceData.senders)) {
+            this.resourceData.senders.forEach((sender: any) => {
+                this.setSender(sender);
+            });
+        } else {
+           const sender = {
+                    type: 'custom'
+                };
+            if (this.onBoarding.docType === 1204 && this.onBoarding.status === 'NEW' && Object.values(this.resourceData.customFields)[16] === 'yes') {
+                setTimeout( () => {this.mergeEmailTemplate(1059); }, 500);
+            } else if (this.onBoarding.docType === 1204 && this.onBoarding.status === 'EAVIS') {
+                console.log('---test merge missing-');
+                setTimeout( () => {this.mergeEmailTemplate(1061); }, 500);
+            } else if (this.onBoarding.docType === 1204 && this.onBoarding.status === 'appcont') {
+                console.log('---test merge approve -');
+                setTimeout( () => {this.mergeEmailTemplate(1062); }, 500);
+            } else if (this.onBoarding.docType === 1204 && this.onBoarding.status === 'signclient') {
+                console.log('---test merge sign client-');
+                setTimeout( () => {this.mergeEmailTemplate(1065); }, 500);
+            } else if (this.onBoarding.docType === 1204 && this.onBoarding.status === 'newGB') {
+                console.log('---test merge sign client-');
+                setTimeout( () => {this.mergeEmailTemplate(1064); }, 500);
             }
+            this.setSender(sender, this.resourceData.customFields);
+        }
     }
 
-    setSender(sender: any) {
+    validateEmail(email) {
+        const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    }
+
+    setSender(sender: any, customFields?: any) {
         switch (sender.type) {
             case 'contact':
+
                 this.http.get(`../rest/contacts/${sender.id}`).pipe(
                     tap((data: any) => {
                         if (!this.functions.empty(data.email)) {
@@ -503,7 +535,18 @@ export class SentResourcePageComponent implements OnInit {
                     })
                 ).subscribe();
                 break;
-
+            case 'custom':
+                for (let email of Object.values(customFields)) {
+                    if (this.validateEmail(email)) {
+                        this.recipients.push(
+                            {
+                                email: email
+                            }
+                        );
+                        break;
+                    }
+                }
+                break;
             default:
                 break;
         }

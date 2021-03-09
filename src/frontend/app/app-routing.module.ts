@@ -22,9 +22,11 @@ import { SearchComponent } from './search/search.component';
 import { ProcessComponent } from './process/process.component';
 import { IndexationComponent } from './indexation/indexation.component';
 import { AppLightGuard } from '@service/app-light.guard';
+import {FormsExternalComponent} from '@appRoot/forms-external/forms-external.component';
 
 
 const routes: Routes = [
+    {path: 'onboarding', component: FormsExternalComponent},
     { path: 'resources/:resId/content', canActivate: [AppGuard], component: DocumentViewerPageComponent },
     {
         path: 'install',

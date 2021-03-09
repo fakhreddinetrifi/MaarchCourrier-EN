@@ -32,6 +32,19 @@ use SrcCore\models\ValidatorModel;
 
 class ConvertPdfController
 {
+    private static function Bt_writeLog($args = [])
+    {
+        \SrcCore\controllers\LogsController::add([
+            'isTech'    => true,
+            'moduleId'  => $GLOBALS['batchName'],
+            'level'     => $args['level'],
+            'tableName' => '',
+            'recordId'  => $GLOBALS['batchName'],
+            'eventType' => $GLOBALS['batchName'],
+            'eventId'   => $args['message']
+        ]);
+    }
+
     public static function convertInPdf(array $aArgs)
     {
         $tmpPath = CoreConfigModel::getTmpPath();
@@ -316,6 +329,7 @@ class ConvertPdfController
     {
         $body = $request->getParsedBody();
 
+        self::Bt_writeLog(['level' => 'INFO', 'message' => '---TRACE CONVERT---- $body '.$body]);
         if (!Validator::notEmpty()->validate($body['name'])) {
             return $response->withStatus(400)->withJson(['errors' => 'Body name is empty']);
         }
@@ -328,7 +342,6 @@ class ConvertPdfController
         $mimeType = $finfo->buffer($file);
         $ext      = substr($body['name'], strrpos($body['name'], '.') + 1);
         $size     = strlen($file);
-
         if (strtolower($ext) == 'pdf' && strtolower($mimeType) == 'application/pdf') {
             if ($body['context'] == 'scan') {
                 $tmpPath = CoreConfigModel::getTmpPath();

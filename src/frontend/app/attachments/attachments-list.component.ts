@@ -38,8 +38,6 @@ import { AppService } from '@service/app.service';
     ],
 })
 export class AttachmentsListComponent implements OnInit {
-
-    
     attachments: any;
     loading: boolean = true;
     pos = 0;
@@ -79,6 +77,7 @@ export class AttachmentsListComponent implements OnInit {
         if (this.resId !== null) {
             this.http.get(`../rest/resources/${this.resId}/attachments`).pipe(
                 tap((data: any) => {
+                    console.log(data)
                     this.mailevaEnabled = data.mailevaEnabled;
                     this.attachments = data.attachments;
                     this.attachments.forEach((element: any) => {
@@ -102,7 +101,7 @@ export class AttachmentsListComponent implements OnInit {
     }
 
     checkMaarchParapheurEnabled() {
-        this.http.get("../rest/externalSignatureBooks/enabled")
+        this.http.get('../rest/externalSignatureBooks/enabled')
             .subscribe((data: any) => {
                 if (data.enabledSignatureBook === 'maarchParapheur') {
                     this.maarchParapheurEnabled = true;
